@@ -7,7 +7,7 @@ html_files = []
 for root, dirs, files in os.walk(base_dir):
     dirs[:] = [d for d in dirs if d not in ('.git',)]
     for f in files:
-        if f.endswith('.html'):
+        if f.endswith('.html') or f.endswith('.css'):
             html_files.append(os.path.join(root, f))
 
 for filepath in html_files:
@@ -15,31 +15,28 @@ for filepath in html_files:
     depth = len(rel.split(os.sep)) - 1
     prefix = "../" * depth
 
-    if depth == 0:
-        print(f"SKIP [0] {rel} (root, no change needed)")
-        continue
-
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # 移除 base tag（如果還有）
-    content = re.sub(r'\s*<base href="[^"]*">\n?', '', content)
+    original = content
 
-    # 對 src/href 加上 ../ 前綴
-    # 條件：不是 http/https、不是 #錨點、不是 //、不是已經有 ../
-    def add_prefix(m):
-        attr = m.group(1)   # src 或 href
-        path = m.group(2)
-        # 跳過：外部連結、錨點、已有前綴
-        if path.startswith(('http', '//', '#', '../', './')):
+    # 修正 CSS url('/...') → url('[prefix]...')
+    def fix_css_url(m):
+        path = m.group(1)
+        if path.startswith(('http', '//', '#')):
             return m.group(0)
-        return f'{attr}="{prefix}{path}"'
+        # 移除開頭的 /
+        path = path.lstrip('/')
+        return f"url('{prefix}{path}')"
 
-    content = re.sub(r'(src|href)="([^"]+)"', add_prefix, content)
+    content = re.sub(r"url\('(/[^']+)'\)", fix_css_url, content)
+    content = re.sub(r'url\("(/[^"]+)"\)', lambda m: f'url("{prefix}{m.group(1).lstrip("/")}")', content)
 
-    with open(filepath, 'w', encoding='utf-8') as f:
-        f.write(content)
-
-    print(f"OK [{depth}] {rel}")
+    if content != original:
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(content)
+        print(f"OK [{depth}] {rel}")
+    else:
+        print(f"-- [{depth}] {rel} (no change)")
 
 print(f"\nDone")
