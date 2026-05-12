@@ -158,9 +158,23 @@
   LINE 免費諮詢
 </a>`;
 
-  /* ── Inject ── */
-  document.body.insertAdjacentHTML('afterbegin', NAV_HTML);
-  document.body.insertAdjacentHTML('beforeend', FOOTER_HTML);
+  /* ── Compute relative root prefix ── */
+  var BASE = (function () {
+    var path = window.location.pathname;
+    var dir = path.replace(/\/[^/]*$/, ''); // strip filename
+    // On GitHub Pages (*.github.io) the first path segment is the repo name; skip it
+    if (window.location.hostname.endsWith('.github.io')) {
+      dir = dir.replace(/^\/[^/]+/, '');
+    }
+    var depth = dir.split('/').filter(Boolean).length;
+    return depth > 0 ? '../'.repeat(depth) : '';
+  })();
+
+  /* ── Inject (rewrite absolute paths to relative) ── */
+  var nav = NAV_HTML.replace(/href="\//g, 'href="' + BASE);
+  var foot = FOOTER_HTML.replace(/href="\//g, 'href="' + BASE);
+  document.body.insertAdjacentHTML('afterbegin', nav);
+  document.body.insertAdjacentHTML('beforeend', foot);
 
   /* ── Mobile menu ── */
   window.toggleMobileMenu = function () {
