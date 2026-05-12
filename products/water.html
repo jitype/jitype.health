@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>氫水機｜鈦氫 TIHY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/assets/shared.css"/>
+  <style>
+    .compare-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+    .compare-card { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: var(--white); }
+    .compare-card-head { padding: 24px; text-align: center; }
+    .compare-card-head .icon { font-size: 48px; margin-bottom: 12px; }
+    .compare-card-head h3 { font-size: 18px; font-weight: 700; color: var(--dark); }
+    .compare-card-body { padding: 24px; border-top: 1px solid var(--border); }
+    .compare-card-body li { font-size: 14px; color: var(--brown); padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 8px; }
+    .compare-card-body li:last-child { border-bottom: none; }
+    .compare-card.highlight { border-color: var(--gold); }
+    .compare-card.highlight .compare-card-head { background: var(--gold-pale); }
+    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .step-item { text-align: center; padding: 24px 16px; }
+    .step-circle { width: 64px; height: 64px; background: var(--gold-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 16px; }
+    .step-num-label { font-size: 11px; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; }
+    .step-title { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .step-desc { font-size: 13px; color: var(--brown); line-height: 1.7; }
+    @media (max-width: 900px) { .compare-cards { grid-template-columns: 1fr; } .steps-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">首頁</a><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>機型介紹 · 氫水機</span>
+    </div>
+    <span class="section-label">機型介紹</span>
+    <h1>氫水機</h1>
+    <p>透過飲用含氫水來補充氫分子。適合日常餐桌使用，搭配氫氧吸入機形成完整保健方式。</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="product-detail-grid">
+      <div class="product-visual reveal-l">
+        <div class="product-showcase" style="background:linear-gradient(135deg,#E8F8FF,#B3E5FC)">💧</div>
+        <div class="product-thumbs">
+          <div class="product-thumb active" style="background:#E8F8FF">💧</div>
+          <div class="product-thumb">🚰</div>
+          <div class="product-thumb">🥤</div>
+        </div>
+      </div>
+      <div class="product-info reveal-r">
+        <div class="product-tag">HYDROGEN WATER · 每日補充</div>
+        <div class="product-name">氫水機</div>
+        <p style="font-size:15px;color:var(--brown);line-height:1.8;margin-bottom:20px">
+          氫水機以電解或氫氣溶入方式，製作富含氫分子的飲用水。搭配每日飲食，是與氫氧吸入機不同的補充路徑。適合全家一起使用，簡單融入生活作息。
+        </p>
+        <div class="product-badges">
+          <span class="product-badge">💧 即飲即製</span>
+          <span class="product-badge">🏠 桌上型</span>
+          <span class="product-badge">👨‍👩‍👧 全家適用</span>
+          <span class="product-badge">🔧 易維護</span>
+        </div>
+        <div class="product-divider"></div>
+        <table class="spec-table">
+          <tr><td>製氫方式</td><td>SPE/PEM 電解</td></tr>
+          <tr><td>氫溶解濃度</td><td>≥ 1200 ppb</td></tr>
+          <tr><td>出水量</td><td>約 1L / 3-5 分鐘</td></tr>
+          <tr><td>機身尺寸</td><td>桌上型（洽詢確認）</td></tr>
+          <tr><td>電源</td><td>AC 100-240V</td></tr>
+          <tr><td>適用水源</td><td>RO 逆滲透水 / 純水</td></tr>
+          <tr><td>適用場景</td><td>廚房 · 餐廳 · 辦公室</td></tr>
+        </table>
+        <div class="product-price-block">
+          <div class="product-price-label">建議售價</div>
+          <span class="product-price-num">洽詢報價</span>
+        </div>
+        <div class="product-actions">
+          <a href="https://line.me/R/ti/p/@tihy" class="btn btn-primary" target="_blank">LINE 洽詢報價</a>
+          <a href="/knowledge/faq.html" class="btn btn-outline">查看 FAQ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 吸入 vs 飲用比較 -->
+<section class="section" style="background:var(--gold-pale)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:16px">
+      <span class="section-label">方式比較</span>
+      <h2 class="section-title">氫氧吸入 vs 氫水飲用</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">兩種方式各有其特性，了解差異後選擇最適合你生活方式的搭配。</p>
+    </div>
+    <div class="compare-cards">
+      <div class="compare-card reveal-l">
+        <div class="compare-card-head"><div class="icon">🌬️</div><h3>氫氧吸入機</h3></div>
+        <div class="compare-card-body">
+          <ul>
+            <li>✅ 直接透過呼吸道吸收，速度快</li>
+            <li>✅ 可達較高的氫分子濃度</li>
+            <li>✅ 配合 HRV 測量，有客觀數據佐證</li>
+            <li>📌 每次需 30-40 分鐘專注使用</li>
+            <li>📌 機器體積相對較大</li>
+          </ul>
+        </div>
+      </div>
+      <div class="compare-card highlight reveal-r">
+        <div class="compare-card-head"><div class="icon">💧</div><h3>氫水機</h3></div>
+        <div class="compare-card-body">
+          <ul>
+            <li>✅ 融入日常飲水，無需額外時間</li>
+            <li>✅ 全家一起使用，無使用門檻</li>
+            <li>✅ 體積小，放在廚房不佔空間</li>
+            <li>📌 氫濃度受溶解度限制（需即製即飲）</li>
+            <li>📌 吸收路徑不同，效率低於吸入方式</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:28px;padding:20px 24px;background:var(--white);border-radius:10px;border:1px solid var(--border);text-align:center" class="reveal">
+      <p style="font-size:15px;font-weight:600;color:var(--dark)">最佳方案：吸入機 ＋ 氫水機 雙管並行</p>
+      <p style="font-size:13px;color:var(--brown);margin-top:8px">早上飲用一大杯現製氫水，晚上睡前配合吸入機，全天候補充氫分子。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 使用步驟 -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:48px">
+      <span class="section-label">使用方式</span>
+      <h2 class="section-title">氫水機使用四步驟</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-item reveal"><div class="step-circle">🚰</div><div class="step-num-label">STEP 01</div><div class="step-title">注入純水</div><p class="step-desc">加入 RO 逆滲透水或蒸餾水，確保電解過程無雜質。</p></div>
+      <div class="step-item reveal" style="transition-delay:.1s"><div class="step-circle">⚡</div><div class="step-num-label">STEP 02</div><div class="step-title">啟動電解</div><p class="step-desc">按下啟動鍵，3-5 分鐘後自動完成，指示燈亮起。</p></div>
+      <div class="step-item reveal" style="transition-delay:.2s"><div class="step-circle">🥤</div><div class="step-num-label">STEP 03</div><div class="step-title">即製即飲</div><p class="step-desc">氫水製成後盡快飲用（30分鐘內），避免氫分子逸散。</p></div>
+      <div class="step-item reveal" style="transition-delay:.3s"><div class="step-circle">🔄</div><div class="step-num-label">STEP 04</div><div class="step-title">每日補充</div><p class="step-desc">建議每天早晨空腹飲用 500-1000ml，養成日常習慣。</p></div>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/shared.js"></script>
+</body>
+</html>

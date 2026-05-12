@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>鈦氫 TIHY｜氫氧健康生活</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: #2C1F0E;
+      background: #FFFDF8;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ===== Color Variables ===== */
+    :root {
+      --orange:    #E07B1A;
+      --gold:      #C9922A;
+      --gold-light:#F2D18A;
+      --gold-pale: #FEF6E4;
+      --dark:      #2C1F0E;
+      --brown:     #6B4C1E;
+      --mid:       #9C7A40;
+      --cream:     #FFFDF8;
+      --white:     #FFFFFF;
+      --border:    #E8D8B0;
+    }
+
+    /* ===== Utility ===== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 4px;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: var(--brown);
+      line-height: 1.9;
+      max-width: 560px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,100,20,0.3); }
+    .btn-outline {
+      background: transparent;
+      color: var(--orange);
+      border: 1.5px solid var(--orange);
+    }
+    .btn-outline:hover { background: var(--orange); color: #fff; }
+
+    /* ===== Header ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      background: rgba(255,253,248,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 68px;
+      display: flex;
+      align-items: center;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--orange), var(--gold));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-icon svg { width: 22px; height: 22px; fill: #fff; }
+    .logo-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: 2px;
+    }
+    .logo-text span { color: var(--orange); }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a {
+      font-size: 14px;
+      color: var(--brown);
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--orange);
+      transition: width 0.25s;
+    }
+    nav a:hover { color: var(--orange); }
+    nav a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--orange);
+      color: #fff !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-size: 14px !important;
+    }
+    .nav-cta:hover { background: var(--gold) !important; }
+    .nav-cta::after { display: none !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--dark); display: block; border-radius: 2px; }
+
+    /* ===== Hero ===== */
+    #hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(160deg, rgba(44,31,14,0.55) 0%, rgba(44,31,14,0.15) 60%),
+        url('/images/hero-lifestyle.jpeg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding-top: 68px;
+      position: relative;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to top, var(--cream), transparent);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 80px 24px;
+      max-width: 640px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 100px;
+      padding: 6px 16px;
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--gold-light);
+      border-radius: 50%;
+    }
+    .hero-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(32px, 5.5vw, 56px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .hero-title em {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-scroll {
+      position: absolute;
+      bottom: 140px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.6);
+      font-size: 11px;
+      letter-spacing: 2px;
+      animation: scrollBounce 2s infinite;
+    }
+    .hero-scroll svg { width: 20px; opacity: 0.7; }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ===== Marquee Strip ===== */
+    .strip {
+      background: linear-gradient(90deg, var(--orange), var(--gold), var(--orange));
+      padding: 14px 0;
+      overflow: hidden;
+    }
+    .strip-track {
+      display: flex;
+      gap: 48px;
+      white-space: nowrap;
+      animation: marquee 28s linear infinite;
+    }
+    .strip-item {
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .strip-item::before {
+      content: '◆';
+      font-size: 8px;
+      opacity: 0.7;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ===== About Section ===== */
+    #about { background: var(--cream); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-image-wrap {
+      position: relative;
+    }
+    .about-image {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .about-image-deco {
+      position: absolute;
+      bottom: -24px; right: -24px;
+      width: 60%;
+      height: 60%;
+      border: 2px solid var(--gold-light);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+    .about-stat {
+      position: absolute;
+      top: 32px; right: -40px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 12px 40px rgba(44,31,14,0.1);
+      min-width: 140px;
+    }
+    .about-stat-num {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .about-stat-label { font-size: 12px; color: var(--mid); margin-top: 4px; }
+    .about-points { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+    .about-point {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .about-point-icon {
+      width: 38px; height: 38px;
+      background: var(--gold-pale);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+    .about-point-text h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .about-point-text p { font-size: 14px; color: var(--brown); line-height: 1.7; }
+
+    /* ===== Features ===== */
+    #features {
+      background: var(--dark);
+      clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
+      padding: 130px 0;
+      margin: -40px 0;
+    }
+    .features-header { text-align: center; margin-bottom: 64px; }
+    .features-header .section-label { color: var(--gold-light); border-color: var(--gold-light); }
+    .features-header .section-title { color: #fff; }
+    .features-header .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto; text-align: center; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 36px 28px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .feature-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-6px); }
+    .feature-card:hover::before { transform: scaleX(1); }
+    .feature-icon { font-size: 36px; margin-bottom: 20px; }
+    .feature-title { font-size: 17px; font-weight: 600; color: #fff; margin-bottom: 10px; }
+    .feature-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.8; }
+
+    /* ===== Products ===== */
+    #products { background: var(--cream); }
+    .products-header { text-align: center; margin-bottom: 64px; }
+    .products-header .section-sub { margin: 0 auto; text-align: center; }
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .product-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+    .product-card:hover { transform: translateY(-8px); box-shadow: 0 24px 64px rgba(44,31,14,0.12); }
+    .product-card.flagship {
+      border-color: var(--gold);
+      position: relative;
+    }
+    .flagship-badge {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: linear-gradient(135deg, var(--orange), var(--gold));
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 1px;
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+    .product-image {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      background: var(--gold-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+    }
+    .product-body { padding: 36px; }
+    .product-label { font-size: 11px; letter-spacing: 2px; color: var(--mid); margin-bottom: 8px; }
+    .product-name {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .product-desc { font-size: 14px; color: var(--brown); line-height: 1.8; margin-bottom: 28px; }
+    .product-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .spec-item { display: flex; flex-direction: column; gap: 2px; }
+    .spec-label { font-size: 11px; color: var(--mid); letter-spacing: 1px; }
+    .spec-value { font-size: 14px; font-weight: 600; color: var(--dark); }
+    .product-price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+    .price-num {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--orange);
+    }
+    .price-unit { font-size: 13px; color: var(--mid); }
+
+    /* ===== Process ===== */
+    #process { background: var(--gold-pale); }
+    .process-header { text-align: center; margin-bottom: 64px; }
+    .process-header .section-sub { margin: 0 auto; text-align: center; }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 52px; left: 12.5%; right: 12.5%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange), var(--gold));
+    }
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+    }
+    .step-num {
+      width: 104px; height: 104px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 8px 24px rgba(200,100,20,0.1);
+      transition: all 0.3s;
+    }
+    .process-step:hover .step-num {
+      border-color: var(--orange);
+      transform: scale(1.08);
+    }
+    .step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .step-desc { font-size: 13px; color: var(--brown); line-height: 1.7; }
+
+    /* ===== Guarantee ===== */
+    #guarantee { background: var(--cream); }
+    .guarantee-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .guarantee-visual {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--gold) 100%);
+      border-radius: 16px;
+      padding: 56px;
+      text-align: center;
+      color: #fff;
+    }
+    .guarantee-big {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 88px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .guarantee-text { font-size: 20px; opacity: 0.9; }
+    .guarantee-sub { font-size: 13px; opacity: 0.65; margin-top: 12px; }
+    .guarantee-items { display: flex; flex-direction: column; gap: 28px; }
+    .guarantee-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .g-icon {
+      width: 48px; height: 48px;
+      background: var(--gold-pale);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .g-text h4 { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .g-text p { font-size: 14px; color: var(--brown); line-height: 1.7; }
+
+    /* ===== Articles ===== */
+    #articles { background: var(--white); }
+    .articles-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .article-card {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--white);
+      transition: all 0.3s;
+    }
+    .article-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(44,31,14,0.1); }
+    .article-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      background: var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 52px;
+    }
+    .article-body { padding: 24px; }
+    .article-tag {
+      display: inline-block;
+      background: var(--gold-pale);
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .article-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .article-excerpt { font-size: 13px; color: var(--brown); line-height: 1.7; }
+    .article-footer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--mid);
+      padding: 16px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ===== CTA ===== */
+    #cta {
+      background: linear-gradient(135deg, #1A0D00 0%, var(--dark) 50%, #3D2500 100%);
+      text-align: center;
+      padding: 120px 0;
+    }
+    #cta .section-label { color: var(--gold-light); border-color: var(--gold-light); }
+    #cta .section-title { color: #fff; }
+    #cta .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto 40px; text-align: center; }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-line {
+      background: #00B900;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .btn-line:hover { background: #009900; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,185,0,0.35); }
+    .cta-note {
+      margin-top: 24px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #1A0D00;
+      padding: 56px 0 32px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .logo-text { font-size: 22px; margin-bottom: 16px; display: block; }
+    .footer-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; }
+    .footer-col h5 {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); }
+    .footer-disclaimer {
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-top: 8px;
+    }
+
+    /* ===== Float Button ===== */
+    .float-btn {
+      position: fixed;
+      bottom: 32px; right: 32px;
+      z-index: 888;
+      background: #00B900;
+      color: #fff;
+      border-radius: 100px;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(0,185,0,0.4);
+      transition: all 0.25s;
+      border: none;
+    }
+    .float-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,185,0,0.5); }
+    .float-btn svg { width: 20px; fill: #fff; flex-shrink: 0; }
+
+    /* ===== Mobile Nav ===== */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: rgba(255,253,248,0.97);
+      backdrop-filter: blur(16px);
+      z-index: 998;
+      padding: 24px;
+      flex-direction: column;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 16px 40px rgba(44,31,14,0.1);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 16px; color: var(--dark); font-weight: 500; padding: 8px 0; border-bottom: 1px solid var(--border); }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .about-grid, .guarantee-inner { grid-template-columns: 1fr; gap: 48px; }
+      .about-stat { right: 12px; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .process-steps::before { display: none; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .trust-inner { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      #features { clip-path: polygon(0 20px, 100% 0, 100% calc(100% - 20px), 0 100%); padding: 100px 0; }
+      .guarantee-visual { padding: 40px 28px; }
+      .guarantee-big { font-size: 64px; }
+    }
+
+    /* ===== Scroll Reveal ===== */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s, transform 0.7s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-32px); transition: opacity 0.7s, transform 0.7s; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(32px); transition: opacity 0.7s, transform 0.7s; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* ===== Dropdown Nav ===== */
+    #desktop-nav { display: flex; align-items: center; gap: 2px; }
+    .nav-dd-wrap { position: relative; }
+    .nav-dd-btn {
+      display: flex; align-items: center; gap: 5px;
+      padding: 8px 14px; border-radius: 4px;
+      font-size: 14px; font-weight: 500; color: var(--brown);
+      background: none; border: none; cursor: pointer;
+      transition: color .2s, background .2s;
+    }
+    .nav-dd-btn svg { transition: transform .2s; }
+    .nav-dd-wrap:hover .nav-dd-btn { color: var(--orange); background: var(--gold-pale); }
+    .nav-dd-wrap:hover .nav-dd-btn svg { transform: rotate(180deg); }
+    .nav-dd {
+      position: absolute; top: calc(100% + 8px); left: 0;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px; min-width: 185px;
+      box-shadow: 0 16px 48px rgba(44,31,14,.12);
+      opacity: 0; visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity .2s, visibility .2s, transform .2s;
+      z-index: 200;
+    }
+    .nav-dd-wrap:hover .nav-dd { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav-dd a {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 9px 12px; border-radius: 6px;
+      font-size: 13px; color: var(--dark);
+      transition: background .15s, color .15s;
+    }
+    .nav-dd a:hover { background: var(--gold-pale); color: var(--orange); }
+    .nav-dd hr { border: none; border-top: 1px solid var(--border); margin: 5px 0; }
+    .dd-new, .dd-hot {
+      font-size: 10px; letter-spacing: .5px; color: #fff;
+      padding: 2px 7px; border-radius: 100px;
+    }
+    .dd-new { background: var(--orange); }
+    .dd-hot { background: var(--gold); }
+    /* Mobile Menu group */
+    .mm-group { padding: 6px 0; border-bottom: 1px solid var(--border); margin-bottom: 4px; }
+    .mm-label { display: block; font-size: 11px; letter-spacing: 2px; color: var(--mid); padding: 6px 0 4px; font-weight: 600; }
+    @media (max-width: 900px) {
+      #desktop-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2 L2 20 L12 15 L22 20 Z"/></svg>
+      </div>
+      <span class="logo-text">鈦<span>氫</span> TIHY</span>
+    </a>
+    <nav id="desktop-nav">
+      <!-- 氫氧知識 -->
+      <div class="nav-dd-wrap">
+        <button class="nav-dd-btn">氫氧知識 <svg viewBox="0 0 24 24" width="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="nav-dd">
+          <a href="/knowledge/science.html">氫氧科學原理</a>
+          <a href="/knowledge/hrv.html">HRV 是什麼</a>
+          <a href="/knowledge/faq.html">氫氧機 FAQ</a>
+          <hr/>
+          <a href="/knowledge/articles.html">全部文章</a>
+        </div>
+      </div>
+      <!-- 機型介紹 -->
+      <div class="nav-dd-wrap">
+        <button class="nav-dd-btn">機型介紹 <svg viewBox="0 0 24 24" width="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="nav-dd">
+          <a href="/products/portable.html">隨身款 100ml <span class="dd-new">新品</span></a>
+          <a href="/products/entry.html">輕盈款 600ml</a>
+          <a href="/products/flagship.html">旗艦款 1200ml <span class="dd-hot">熱銷</span></a>
+          <a href="/products/water.html">氫水機</a>
+          <hr/>
+          <a href="/products/subscription.html">月費訂閱方案</a>
+        </div>
+      </div>
+      <!-- 服務說明 -->
+      <div class="nav-dd-wrap">
+        <button class="nav-dd-btn">服務說明 <svg viewBox="0 0 24 24" width="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="nav-dd">
+          <a href="/service/hrv-process.html">HRV 評估流程</a>
+          <a href="/service/home-visit.html">到府體驗服務</a>
+          <a href="/service/monthly.html">月費追蹤服務</a>
+        </div>
+      </div>
+      <a href="#cta" class="nav-cta">免費諮詢</a>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-group"><span class="mm-label">氫氧知識</span>
+    <a href="/knowledge/science.html" onclick="closeMenu()">氫氧科學原理</a>
+    <a href="/knowledge/hrv.html" onclick="closeMenu()">HRV 是什麼</a>
+    <a href="/knowledge/faq.html" onclick="closeMenu()">氫氧機 FAQ</a>
+    <a href="/knowledge/articles.html" onclick="closeMenu()">全部文章</a>
+  </div>
+  <div class="mm-group"><span class="mm-label">機型介紹</span>
+    <a href="/products/portable.html" onclick="closeMenu()">隨身款 100ml</a>
+    <a href="/products/entry.html" onclick="closeMenu()">輕盈款 600ml</a>
+    <a href="/products/flagship.html" onclick="closeMenu()">旗艦款 1200ml</a>
+    <a href="/products/water.html" onclick="closeMenu()">氫水機</a>
+    <a href="/products/subscription.html" onclick="closeMenu()">月費訂閱方案</a>
+  </div>
+  <div class="mm-group"><span class="mm-label">服務說明</span>
+    <a href="/service/hrv-process.html" onclick="closeMenu()">HRV 評估流程</a>
+    <a href="/service/home-visit.html" onclick="closeMenu()">到府體驗服務</a>
+    <a href="/service/monthly.html" onclick="closeMenu()">月費追蹤服務</a>
+  </div>
+  <a href="#cta" onclick="closeMenu()" class="nav-cta" style="display:block;text-align:center;margin-top:8px;padding:12px;">免費諮詢</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">氫氧日常保健 · 數據見證改變</div>
+      <h1 class="hero-title">
+        讓每一口呼吸<br/>
+        成為<em>照顧自己</em>的<br/>
+        日常選擇
+      </h1>
+      <p class="hero-sub">
+        鈦氫結合氫氧吸入與 HRV 心律變異分析，<br/>
+        以數據量化你的身體狀態變化，<br/>
+        陪伴你在忙碌生活中找回自在節奏。
+      </p>
+      <div class="hero-actions">
+        <a href="#process" class="btn btn-primary">了解服務流程</a>
+        <a href="#products" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.5);">查看機型介紹</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    SCROLL
+  </div>
+</section>
+
+<!-- ===== STRIP ===== -->
+<div class="strip">
+  <div class="strip-track">
+    <span class="strip-item">氫氧日常保健</span>
+    <span class="strip-item">HRV 數據佐證</span>
+    <span class="strip-item">輔助放鬆調節</span>
+    <span class="strip-item">到府體驗服務</span>
+    <span class="strip-item">7天鑑賞保障</span>
+    <span class="strip-item">月費訂閱追蹤</span>
+    <span class="strip-item">企業主・高階主管・自營業者</span>
+    <span class="strip-item">氫氧日常保健</span>
+    <span class="strip-item">HRV 數據佐證</span>
+    <span class="strip-item">輔助放鬆調節</span>
+    <span class="strip-item">到府體驗服務</span>
+    <span class="strip-item">7天鑑賞保障</span>
+    <span class="strip-item">月費訂閱追蹤</span>
+    <span class="strip-item">企業主・高階主管・自營業者</span>
+  </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrap reveal-left">
+        <img
+          class="about-image"
+          src="/images/ai-lifestyle-desk-h2.png"
+          alt="居家書房使用氫氧機，放鬆舒壓"
+        />
+        <div class="about-image-deco"></div>
+        <div class="about-stat">
+          <div class="about-stat-num">H₂</div>
+          <div class="about-stat-label">分子量最小<br/>穿透力最強</div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <span class="section-label">關於氫氧</span>
+        <h2 class="section-title">氫，是宇宙最小的元素<br/>也是身體最溫和的夥伴</h2>
+        <p class="section-sub">
+          氫氣（H₂）分子量極小，能快速擴散至細胞各層，協助身體維持日常保健狀態。
+          鈦氫採用高純度電解技術，提供穩定、安全的氫氧吸入體驗，
+          搭配 HRV 心律變異測量，讓你親眼見到使用前後的自律神經數據變化。
+        </p>
+        <div class="about-points">
+          <div class="about-point">
+            <div class="about-point-icon">🔬</div>
+            <div class="about-point-text">
+              <h4>科學量化，不只憑感覺</h4>
+              <p>每次服務均附帶 HRV 前後測報表，數據即時呈現，客觀可對比。</p>
+            </div>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon">🏠</div>
+            <div class="about-point-text">
+              <h4>到府服務，零壓力體驗</h4>
+              <p>不需要出門，在自己最熟悉的環境中完成完整體驗，輕鬆感受氫氧的日常陪伴。</p>
+            </div>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon">📊</div>
+            <div class="about-point-text">
+              <h4>月費訂閱，持續追蹤健康</h4>
+              <p>購機後持續提供 HRV 定期追蹤服務，陪你記錄並改善長期健康趨勢。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section id="features">
+  <div class="container">
+    <div class="features-header reveal">
+      <span class="section-label">核心優勢</span>
+      <h2 class="section-title">為什麼選擇鈦氫</h2>
+      <p class="section-sub">從產品品質到使用體驗，鈦氫提供全方位的氫氧健康解決方案。</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">⚗️</div>
+        <h3 class="feature-title">高純度電解技術</h3>
+        <p class="feature-desc">採用 PEM 固態電解質膜，產出純淨氫氧混合氣，無雜質干擾，可安心長期使用。</p>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:0.1s">
+        <div class="feature-icon">📈</div>
+        <h3 class="feature-title">HRV 數據即時佐證</h3>
+        <p class="feature-desc">結合 KYTO 穿戴裝置與 Elite HRV 應用，30分鐘吸氫前後自律神經數據清楚對比。</p>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:0.2s">
+        <div class="feature-icon">🛡️</div>
+        <h3 class="feature-title">7天鑑賞期保障</h3>
+        <p class="feature-desc">購機後享有 7 天無壓力鑑賞期，讓你有充足時間評估是否符合日常生活需求。</p>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:0.3s">
+        <div class="feature-icon">🔄</div>
+        <h3 class="feature-title">持續訂閱追蹤服務</h3>
+        <p class="feature-desc">月費訂閱方案提供定期 HRV 複測與報告，讓健康管理成為可執行的長期習慣。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="products" class="section">
+  <div class="container">
+    <div class="products-header reveal">
+      <span class="section-label">機型介紹</span>
+      <h2 class="section-title">找到最適合你的氫氧機</h2>
+      <p class="section-sub">兩款機型均採相同核心技術，依據使用需求與空間條件選擇最合適的配置。</p>
+    </div>
+    <div class="products-grid">
+      <!-- 入門款 -->
+      <div class="product-card reveal-left">
+        <img class="product-image" src="/images/product-entry-room.jpeg" alt="輕盈款 600ml 氫氧機" style="object-fit:cover;">
+        <div class="product-body">
+          <div class="product-label">ENTRY MODEL</div>
+          <div class="product-name">輕盈款 600ml/min</div>
+          <p class="product-desc">
+            適合個人每日使用的入門首選。輕巧設計方便移動，30-40分鐘的標準吸氫流程即可完整體驗。
+          </p>
+          <div class="product-specs">
+            <div class="spec-item">
+              <span class="spec-label">氫氣濃度</span>
+              <span class="spec-value">≥ 99.99%</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">產氣量</span>
+              <span class="spec-value">600 ml/min</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">使用人數</span>
+              <span class="spec-value">1人專屬</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">連續使用</span>
+              <span class="spec-value">8小時</span>
+            </div>
+          </div>
+          <div class="product-price">
+            <span class="price-num">NT$158,000</span>
+            <span class="price-unit">含稅</span>
+          </div>
+          <div style="display:flex;gap:10px;flex-direction:column">
+            <a href="/products/entry.html" class="btn btn-outline" style="width:100%;justify-content:center;font-size:13px;">查看完整規格</a>
+            <a href="#cta" class="btn btn-primary" style="width:100%;justify-content:center;font-size:13px;">預約到府體驗</a>
+          </div>
+        </div>
+      </div>
+      <!-- 旗艦款 -->
+      <div class="product-card flagship reveal-right">
+        <span class="flagship-badge">★ 旗艦首選</span>
+        <img class="product-image" src="/images/product-flagship.jpeg" alt="旗艦款 1200ml 氫氧機" style="object-fit:cover;">
+        <div class="product-body">
+          <div class="product-label">FLAGSHIP MODEL</div>
+          <div class="product-name">旗艦款 1200ml/min</div>
+          <p class="product-desc">
+            適合家庭共用或追求更高流量的進階使用者。雙倍產氣量搭配靜音設計，為高端健康生活的理想選擇。
+          </p>
+          <div class="product-specs">
+            <div class="spec-item">
+              <span class="spec-label">氫氣濃度</span>
+              <span class="spec-value">≥ 99.99%</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">產氣量</span>
+              <span class="spec-value">1200 ml/min</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">使用人數</span>
+              <span class="spec-value">家庭共用</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">連續使用</span>
+              <span class="spec-value">12小時</span>
+            </div>
+          </div>
+          <div class="product-price">
+            <span class="price-num">NT$258,000</span>
+            <span class="price-unit">含稅</span>
+          </div>
+          <div style="display:flex;gap:10px;flex-direction:column">
+            <a href="/products/flagship.html" class="btn btn-outline" style="width:100%;justify-content:center;font-size:13px;">查看完整規格</a>
+            <a href="#cta" class="btn btn-primary" style="width:100%;justify-content:center;font-size:13px;">預約到府體驗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section id="process" class="section">
+  <div class="container">
+    <div class="process-header reveal">
+      <span class="section-label">服務流程</span>
+      <h2 class="section-title">四個步驟，完整體驗</h2>
+      <p class="section-sub">從預約到報告產出，鈦氫以數據為核心設計每一個服務環節，讓你親眼見到改變。</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">📞</div>
+        <h4 class="step-title">LINE 預約</h4>
+        <p class="step-desc">加入鈦氫 LINE OA，填寫基本健康問卷，由專人確認到府日期與時間。</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:0.15s">
+        <div class="step-num">📊</div>
+        <h4 class="step-title">HRV 前測</h4>
+        <p class="step-desc">使用穿戴裝置進行 5 分鐘基線測量，建立你今日的自律神經基準數據。</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:0.3s">
+        <div class="step-num">🫧</div>
+        <h4 class="step-title">氫氧體驗</h4>
+        <p class="step-desc">輕鬆坐著進行 30-40 分鐘氫氧吸入，同時了解氫氧的日常保健原理與使用方式。</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:0.45s">
+        <div class="step-num">📋</div>
+        <h4 class="step-title">報告對比</h4>
+        <p class="step-desc">完成後立即進行 HRV 後測，當場產出前後對比報告，讓數據說話。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GUARANTEE ===== -->
+<section id="guarantee" class="section">
+  <div class="container">
+    <div class="guarantee-inner">
+      <div class="guarantee-visual reveal-left">
+        <div class="guarantee-big">7</div>
+        <div class="guarantee-text">天鑑賞期保障</div>
+        <div class="guarantee-sub">購機後自送機日起計算<br/>無壓力評估期</div>
+      </div>
+      <div class="reveal-right">
+        <span class="section-label">信心保障</span>
+        <h2 class="section-title">我們用保障<br/>換取你的信任</h2>
+        <p class="section-sub" style="margin-bottom:36px">
+          鈦氫深信，真正好的產品不需要強迫成交。
+          我們以完整的服務體驗與數據報告取代口頭承諾。
+        </p>
+        <div class="guarantee-items">
+          <div class="guarantee-item">
+            <div class="g-icon">✅</div>
+            <div class="g-text">
+              <h4>7天無壓力鑑賞</h4>
+              <p>送機後 7 天內若不符合期待，依合約辦理，保障雙方權益。</p>
+            </div>
+          </div>
+          <div class="guarantee-item">
+            <div class="g-icon">📊</div>
+            <div class="g-text">
+              <h4>HRV 數據留存</h4>
+              <p>每次 HRV 報告永久存檔於雲端，方便日後趨勢比對與追蹤。</p>
+            </div>
+          </div>
+          <div class="guarantee-item">
+            <div class="g-icon">🔧</div>
+            <div class="g-text">
+              <h4>售後持續服務</h4>
+              <p>購機後定期 HRV 複測提醒，Line 優先回覆，不讓你買完就孤單。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST / CREDENTIALS ===== -->
+<section id="trust" class="section" style="background:var(--dark)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:64px" class="reveal">
+      <span class="section-label" style="color:var(--gold-light);border-color:var(--gold-light)">品質認證</span>
+      <h2 class="section-title" style="color:#fff">有憑有據，不只是口頭保證</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.6);margin:0 auto;text-align:center">SGS 國際第三方檢測認證、台灣・中國・日本三地專利，<br/>是鈦氫產品品質的最有力背書。</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start" class="trust-inner">
+      <!-- SGS 報告 -->
+      <div class="reveal-left">
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden;">
+          <img src="/images/sgs-purity-report.jpg" alt="SGS 氫氣純度 99.999% 檢測報告" style="width:100%;display:block;opacity:.95;">
+          <div style="padding:20px 24px;">
+            <div style="font-size:11px;letter-spacing:2px;color:var(--gold-light);font-weight:700;margin-bottom:6px;">SGS 國際認證</div>
+            <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">氫氣純度 99.999% 第三方檢測</div>
+            <div style="font-size:13px;color:rgba(255,255,255,.5);">超微量工業安全實驗室 · 報告編號 UM/2020/80137</div>
+          </div>
+        </div>
+      </div>
+      <!-- 專利證書 2×2 -->
+      <div class="reveal-right">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden;">
+            <img src="/images/patent-tw.jpg" alt="中華民國專利證書" style="width:100%;display:block;opacity:.9;">
+            <div style="padding:12px 14px;font-size:12px;color:rgba(255,255,255,.7);">🇹🇼 台灣專利 M538941</div>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden;">
+            <img src="/images/patent-jp.jpg" alt="日本實用新案登錄証" style="width:100%;display:block;opacity:.9;">
+            <div style="padding:12px 14px;font-size:12px;color:rgba(255,255,255,.7);">🇯🇵 日本專利 3207713</div>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden;">
+            <img src="/images/patent-cn-machine.jpg" alt="中國氫氧水機實用新型專利" style="width:100%;display:block;opacity:.9;">
+            <div style="padding:12px 14px;font-size:12px;color:rgba(255,255,255,.7);">🇨🇳 中國專利 氫氧水機</div>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden;">
+            <img src="/images/patent-cn-dry.jpg" alt="中國乾式電解實用新型專利" style="width:100%;display:block;opacity:.9;">
+            <div style="padding:12px 14px;font-size:12px;color:rgba(255,255,255,.7);">🇨🇳 中國專利 乾式電解</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARTICLES ===== -->
+<section id="articles" class="section">
+  <div class="container">
+    <div class="articles-header">
+      <div>
+        <span class="section-label">氫氧知識庫</span>
+        <h2 class="section-title">值得了解的健康知識</h2>
+      </div>
+      <a href="#articles" class="btn btn-outline">查看更多文章</a>
+    </div>
+    <div class="articles-grid">
+      <div class="article-card reveal">
+        <div class="article-thumb">🫀</div>
+        <div class="article-body">
+          <span class="article-tag">HRV 基礎</span>
+          <h3 class="article-title">什麼是 HRV？心律變異與自律神經的關係</h3>
+          <p class="article-excerpt">心律變異（HRV）是心跳與心跳之間時間差的變化量，是目前科學界認可衡量自律神經平衡的客觀指標之一...</p>
+        </div>
+        <div class="article-footer">
+          <span>📅 2026-02-20</span>
+          <span>·</span>
+          <span>閱讀時間 5 分鐘</span>
+        </div>
+      </div>
+      <div class="article-card reveal" style="transition-delay:0.1s">
+        <div class="article-thumb">🌬️</div>
+        <div class="article-body">
+          <span class="article-tag">氫氧科學</span>
+          <h3 class="article-title">氫氧吸入：現有研究整理與常見問題解答</h3>
+          <p class="article-excerpt">氫氣（H₂）的保健潛力受到越來越多研究關注。本文整理目前主要的學術文獻方向，幫助你建立正確理解...</p>
+        </div>
+        <div class="article-footer">
+          <span>📅 2026-02-10</span>
+          <span>·</span>
+          <span>閱讀時間 8 分鐘</span>
+        </div>
+      </div>
+      <div class="article-card reveal" style="transition-delay:0.2s">
+        <div class="article-thumb">🧘</div>
+        <div class="article-body">
+          <span class="article-tag">生活應用</span>
+          <h3 class="article-title">忙碌的高階主管如何把氫氧融入每日作息</h3>
+          <p class="article-excerpt">對於時間寶貴的企業主與主管而言，如何在不改變既有生活節奏的前提下，將氫氧吸入融入晨間或睡前例行...</p>
+        </div>
+        <div class="article-footer">
+          <span>📅 2026-01-28</span>
+          <span>·</span>
+          <span>閱讀時間 6 分鐘</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="cta">
+  <div class="container">
+    <span class="section-label">立即開始</span>
+    <h2 class="section-title reveal">準備好讓數據告訴你<br/>身體的改變了嗎？</h2>
+    <p class="section-sub reveal">
+      加入鈦氫 LINE OA，預約免費 HRV 健康評估體驗。<br/>
+      讓我們用數據，陪你做出更好的健康選擇。
+    </p>
+    <div class="cta-actions reveal">
+      <a href="https://line.me/R/ti/p/@tihy" class="btn-line" target="_blank">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M21.5 10.2c0-4.5-4.5-8.2-10-8.2s-10 3.7-10 8.2c0 4 3.6 7.4 8.4 8.1.3.1.8.2.9.5.1.3 0 .6 0 .9l-.1.9c0 .3-.2 1.1.9.6 1.1-.5 6-3.5 8.2-6 1.5-1.6 2.7-3.7 2.7-6z"/></svg>
+        加入 LINE 預約體驗
+      </a>
+      <a href="https://line.me/R/ti/p/@tihy" class="btn btn-outline" target="_blank" style="color:#fff;border-color:rgba(255,255,255,0.3);padding:16px 32px;">
+        💬 私訊 LINE 諮詢
+      </a>
+    </div>
+    <p class="cta-note">初次體驗 HRV 評估費用 NT$500（可抵購機金額）</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text" style="color:#fff;font-family:'Noto Serif TC',serif;">鈦<span style="color:var(--orange)">氫</span> TIHY</span>
+        <p class="footer-desc">
+          以數據量化健康改變<br/>
+          以氫氧陪伴日常保健<br/>
+          鈦氫是你忙碌生活中最安靜的守護
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>機型介紹</h5>
+        <ul>
+          <li><a href="/products/portable.html">隨身款 100ml</a></li>
+          <li><a href="/products/entry.html">輕盈款 600ml</a></li>
+          <li><a href="/products/flagship.html">旗艦款 1200ml</a></li>
+          <li><a href="/products/water.html">氫水機</a></li>
+          <li><a href="/products/subscription.html">月費訂閱方案</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>氫氧知識</h5>
+        <ul>
+          <li><a href="/knowledge/science.html">氫氧科學原理</a></li>
+          <li><a href="/knowledge/hrv.html">HRV 是什麼</a></li>
+          <li><a href="/knowledge/faq.html">氫氧機 FAQ</a></li>
+          <li><a href="/knowledge/articles.html">全部文章</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>聯絡管道</h5>
+        <ul>
+          <li><a href="https://line.me/R/ti/p/@tihy" target="_blank">LINE OA 客服</a></li>
+          <li><a href="https://www.facebook.com/tihy.tw" target="_blank">Facebook 粉專</a></li>
+          <li><a href="https://www.instagram.com/tihy.tw" target="_blank">Instagram</a></li>
+          <li><a href="https://line.me/R/ti/p/@tihy" target="_blank">LINE 洽詢</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <p>© 2026 鈦氫 TIHY 有限公司 · 統一編號：待申請</p>
+        <p class="footer-disclaimer">
+          ⚠️ 本網站所有內容僅供日常保健參考，氫氧機非醫療器材，不作為任何疾病之診斷或治療依據。
+          身體不適請諮詢合格醫師。
+        </p>
+      </div>
+      <div style="display:flex;gap:16px">
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,0.3);">隱私權政策</a>
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,0.3);">服務條款</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== FLOAT BUTTON ===== -->
+<a href="https://line.me/R/ti/p/@tihy" class="float-btn" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M21.5 10.2c0-4.5-4.5-8.2-10-8.2s-10 3.7-10 8.2c0 4 3.6 7.4 8.4 8.1.3.1.8.2.9.5.1.3 0 .6 0 .9l-.1.9c0 .3-.2 1.1.9.6 1.1-.5 6-3.5 8.2-6 1.5-1.6 2.7-3.7 2.7-6z"/></svg>
+  LINE 免費諮詢
+</a>
+
+<!-- ===== JS ===== -->
+<script>
+  // Hamburger Menu
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // Scroll Reveal
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Header shadow on scroll
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.style.boxShadow = window.scrollY > 20
+      ? '0 4px 24px rgba(44,31,14,0.1)'
+      : 'none';
+  });
+</script>
+</body>
+</html>

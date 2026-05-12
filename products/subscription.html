@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>月費訂閱方案｜鈦氫 TIHY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/assets/shared.css"/>
+  <style>
+    .timeline-h { display: flex; justify-content: space-between; position: relative; margin-top: 48px; }
+    .timeline-h::before { content: ''; position: absolute; top: 28px; left: 5%; right: 5%; height: 2px; background: linear-gradient(90deg, var(--orange), var(--gold)); }
+    .timeline-h-item { display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; padding: 0 8px; }
+    .timeline-h-dot { width: 56px; height: 56px; background: var(--white); border: 2px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; position: relative; z-index: 1; box-shadow: 0 4px 16px rgba(224,123,26,.12); margin-bottom: 14px; transition: all .3s; }
+    .timeline-h-item:hover .timeline-h-dot { border-color: var(--orange); transform: scale(1.08); }
+    .timeline-h-day { font-size: 11px; letter-spacing: 1px; color: var(--gold); font-weight: 600; margin-bottom: 4px; }
+    .timeline-h-title { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .timeline-h-desc { font-size: 11px; color: var(--brown); line-height: 1.5; }
+    @media (max-width: 900px) {
+      .timeline-h { flex-direction: column; gap: 20px; }
+      .timeline-h::before { display: none; }
+      .timeline-h-item { flex-direction: row; text-align: left; gap: 16px; }
+      .timeline-h-dot { flex-shrink: 0; }
+    }
+  </style>
+</head>
+<body>
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">首頁</a><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>機型介紹 · 月費訂閱方案</span>
+    </div>
+    <span class="section-label">訂閱服務</span>
+    <h1>月費訂閱方案</h1>
+    <p>購機後的長期健康追蹤服務。定期 HRV 複測、智能提醒、數據趨勢分析，讓保健成為真正可執行的長期習慣。</p>
+  </div>
+</section>
+
+<!-- 方案比較 -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:56px">
+      <span class="section-label">訂閱方案</span>
+      <h2 class="section-title">選擇最適合你的追蹤強度</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">所有方案均需搭配購機，為現有機主提供的加值服務。</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-head">
+          <div class="pricing-tag">BASIC</div>
+          <div class="pricing-name">基礎追蹤</div>
+          <div class="pricing-price"><span class="pricing-num">NT$2,000</span><span class="pricing-unit">/月</span></div>
+        </div>
+        <div class="pricing-body">
+          <div class="pricing-features">
+            <div class="pricing-feat">每月 1 次 HRV 複測（到府或遠端）</div>
+            <div class="pricing-feat">月度健康數據報告（PDF）</div>
+            <div class="pricing-feat">LINE OA 自動使用提醒</div>
+            <div class="pricing-feat">優先客服回覆（24小時內）</div>
+            <div class="pricing-feat no">每季趨勢分析報告</div>
+            <div class="pricing-feat no">年度健康回顧</div>
+          </div>
+          <a href="https://line.me/R/ti/p/@tihy" class="btn btn-outline" style="width:100%;justify-content:center" target="_blank">選擇基礎方案</a>
+        </div>
+      </div>
+      <div class="pricing-card featured reveal" style="transition-delay:.1s">
+        <div class="pricing-head">
+          <div class="pricing-tag">ADVANCED ★ 推薦</div>
+          <div class="pricing-name">進階追蹤</div>
+          <div class="pricing-price"><span class="pricing-num">NT$3,000</span><span class="pricing-unit">/月</span></div>
+        </div>
+        <div class="pricing-body">
+          <div class="pricing-features">
+            <div class="pricing-feat">每月 2 次 HRV 複測（到府）</div>
+            <div class="pricing-feat">月度健康數據報告（互動版）</div>
+            <div class="pricing-feat">LINE OA 智能追蹤序列</div>
+            <div class="pricing-feat">優先客服回覆（8小時內）</div>
+            <div class="pricing-feat">每季趨勢分析報告</div>
+            <div class="pricing-feat">年度健康回顧（1小時討論）</div>
+          </div>
+          <a href="https://line.me/R/ti/p/@tihy" class="btn btn-primary" style="width:100%;justify-content:center" target="_blank">選擇進階方案</a>
+        </div>
+      </div>
+      <div class="pricing-card reveal" style="transition-delay:.2s">
+        <div class="pricing-head">
+          <div class="pricing-tag">ENTERPRISE</div>
+          <div class="pricing-name">企業方案</div>
+          <div class="pricing-price"><span class="pricing-num">洽詢</span><span class="pricing-unit">客製化</span></div>
+        </div>
+        <div class="pricing-body">
+          <div class="pricing-features">
+            <div class="pricing-feat">多人 HRV 批次評估</div>
+            <div class="pricing-feat">企業健康數據儀表板</div>
+            <div class="pricing-feat">員工健康報告整合</div>
+            <div class="pricing-feat">專屬客服帳號</div>
+            <div class="pricing-feat">季度企業健康演講</div>
+            <div class="pricing-feat">客製化追蹤頻率</div>
+          </div>
+          <a href="https://line.me/R/ti/p/@tihy" class="btn btn-outline" style="width:100%;justify-content:center" target="_blank">洽詢企業方案</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 自動追蹤序列 -->
+<section class="section" style="background:var(--gold-pale)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:8px">
+      <span class="section-label">自動化追蹤</span>
+      <h2 class="section-title">LINE OA 智能追蹤序列</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">從購機當日起，自動啟動長達 60 天的追蹤關懷，每個時機點都有對應的陪伴。</p>
+    </div>
+    <div class="timeline-h">
+      <div class="timeline-h-item reveal"><div class="timeline-h-dot">📦</div><div class="timeline-h-day">送機日</div><div class="timeline-h-title">歡迎入門</div><p class="timeline-h-desc">設備安裝完成確認，使用教學提醒</p></div>
+      <div class="timeline-h-item reveal" style="transition-delay:.1s"><div class="timeline-h-dot">💬</div><div class="timeline-h-day">Day 3</div><div class="timeline-h-title">初次感受</div><p class="timeline-h-desc">詢問使用感受，回答初期問題</p></div>
+      <div class="timeline-h-item reveal" style="transition-delay:.2s"><div class="timeline-h-dot">📚</div><div class="timeline-h-day">Day 7</div><div class="timeline-h-title">知識補充</div><p class="timeline-h-desc">發送氫氧科學知識文章</p></div>
+      <div class="timeline-h-item reveal" style="transition-delay:.3s"><div class="timeline-h-dot">📊</div><div class="timeline-h-day">Day 14</div><div class="timeline-h-title">HRV 複測</div><p class="timeline-h-desc">邀請進行首次 HRV 複測，查看兩週趨勢</p></div>
+      <div class="timeline-h-item reveal" style="transition-delay:.4s"><div class="timeline-h-dot">🎁</div><div class="timeline-h-day">Day 30</div><div class="timeline-h-title">月度回顧</div><p class="timeline-h-desc">訂閱用戶月度報告，或轉換訂閱優惠</p></div>
+      <div class="timeline-h-item reveal" style="transition-delay:.5s"><div class="timeline-h-dot">👥</div><div class="timeline-h-day">Day 60</div><div class="timeline-h-title">老帶新</div><p class="timeline-h-desc">邀請推薦好友，雙方均享有優惠</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--white)">
+  <div class="container" style="max-width:720px">
+    <div class="reveal" style="text-align:center;margin-bottom:40px">
+      <span class="section-label">訂閱問題</span>
+      <h2 class="section-title">常見訂閱相關問題</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal"><button class="faq-q">訂閱可以隨時取消嗎？<span class="faq-icon">＋</span></button><div class="faq-a"><div class="faq-a-inner">可以。訂閱制採月付方式，提前 7 天通知即可於下個月起取消，不設違約金或最低訂閱期數限制。</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q">HRV 複測是到府還是遠端？<span class="faq-icon">＋</span></button><div class="faq-a"><div class="faq-a-inner">視方案而定。基礎方案可選擇到府或遠端（自行測量後上傳截圖）；進階方案預設為到府服務。若居住地點較遠，可與我們協商調整。</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q">沒有訂閱也可以偶爾要求 HRV 複測嗎？<span class="faq-icon">＋</span></button><div class="faq-a"><div class="faq-a-inner">可以，以單次計費方式進行，每次 NT$500（含報告）。訂閱方案的優勢在於系統化追蹤與趨勢分析，讓數據真正發揮長期價值。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/shared.js"></script>
+</body>
+</html>

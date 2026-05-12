@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HRV 評估流程｜鈦氫 TIHY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/assets/shared.css"/>
+  <style>
+    .step-flow { display: flex; flex-direction: column; gap: 0; margin-top: 56px; }
+    .step-row { display: grid; grid-template-columns: 1fr 80px 1fr; gap: 0; align-items: center; }
+    .step-row.reverse .step-card { order: 3; }
+    .step-row.reverse .step-arrow { order: 2; }
+    .step-row.reverse .step-empty { order: 1; }
+    .step-card {
+      background: var(--white); border-radius: 16px; padding: 32px;
+      border: 1px solid var(--border); position: relative;
+    }
+    .step-card:hover { box-shadow: 0 12px 36px rgba(224,123,26,.1); transform: translateY(-2px); transition: all .3s; }
+    .step-num {
+      position: absolute; top: -18px; left: 28px;
+      background: var(--orange); color: #fff;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      padding: 5px 14px; border-radius: 100px;
+    }
+    .step-icon { font-size: 36px; margin-bottom: 12px; }
+    .step-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .step-desc { font-size: 13px; color: var(--brown); line-height: 1.8; }
+    .step-time { font-size: 11px; color: var(--gold); font-weight: 600; margin-top: 10px; letter-spacing: 1px; }
+    .step-arrow { display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--gold); }
+    .step-empty { }
+    .step-connector { height: 48px; width: 2px; background: linear-gradient(var(--orange), var(--gold)); margin: 0 auto; }
+    .step-conn-wrap { display: flex; }
+    .step-conn-wrap.right { justify-content: flex-end; padding-right: calc(50% + 40px); }
+    .step-conn-wrap.left  { justify-content: flex-start; padding-left: calc(50% + 40px); }
+    .result-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px; }
+    .result-card { background: var(--white); border-radius: 12px; padding: 28px 24px; border: 1px solid var(--border); text-align: center; }
+    .result-icon { font-size: 36px; margin-bottom: 12px; }
+    .result-title { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .result-desc { font-size: 13px; color: var(--brown); line-height: 1.7; }
+    .report-preview { background: var(--dark); border-radius: 16px; padding: 40px 48px; margin-top: 56px; color: #fff; }
+    .report-preview h3 { font-family: 'Noto Serif TC', serif; font-size: 22px; color: #fff; margin-bottom: 8px; }
+    .report-preview p { font-size: 14px; color: rgba(255,255,255,.7); margin-bottom: 28px; }
+    .report-items { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    .report-item { background: rgba(255,255,255,.08); border-radius: 10px; padding: 18px 20px; border: 1px solid rgba(255,255,255,.1); }
+    .report-item-label { font-size: 11px; letter-spacing: 1.5px; color: var(--gold-light); font-weight: 600; margin-bottom: 6px; }
+    .report-item-val { font-size: 16px; font-weight: 700; }
+    .device-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 56px; }
+    .device-visual { background: var(--gold-pale); border-radius: 16px; display: flex; align-items: center; justify-content: center; height: 240px; font-size: 96px; }
+    .device-specs { }
+    .device-name { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .device-sub { font-size: 13px; color: var(--brown); margin-bottom: 20px; }
+    @media (max-width: 900px) {
+      .step-row { grid-template-columns: 1fr; }
+      .step-arrow { display: none; }
+      .step-empty { display: none; }
+      .result-cards { grid-template-columns: 1fr; }
+      .report-items { grid-template-columns: 1fr; }
+      .device-grid { grid-template-columns: 1fr; }
+      /* 手機版步驟連接線：全部置中 */
+      .step-conn-wrap.right, .step-conn-wrap.left {
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+    @media (max-width: 600px) { .report-preview { padding: 28px 24px; } }
+  </style>
+</head>
+<body>
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">首頁</a><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>服務說明 · HRV 評估流程</span>
+    </div>
+    <span class="section-label">服務說明</span>
+    <h1>HRV 評估流程</h1>
+    <p>不靠感覺、不靠宣稱——鈦氫用客觀數據讓你親眼看見身體的反應。整個流程約 60-90 分鐘，輕鬆、不具侵入性。</p>
+  </div>
+</section>
+
+<!-- 流程步驟 -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:8px">
+      <span class="section-label">評估步驟</span>
+      <h2 class="section-title">五步驟完整評估</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">每個步驟都有明確目的，讓你對自己的身體狀態有真實認識。</p>
+    </div>
+
+    <div class="step-flow">
+      <!-- Step 1 -->
+      <div class="step-row reveal">
+        <div class="step-card">
+          <div class="step-num">STEP 1</div>
+          <div class="step-icon">📋</div>
+          <div class="step-title">健康問卷與初步諮詢</div>
+          <p class="step-desc">到府後先填寫簡短的生活習慣問卷，了解你目前的睡眠品質、壓力狀況、飲食習慣與運動頻率。這些資訊會幫助顧問在解讀 HRV 數據時提供更準確的個人化分析。</p>
+          <div class="step-time">⏱ 約 10 分鐘</div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-empty"></div>
+      </div>
+      <div class="step-conn-wrap right"><div class="step-connector"></div></div>
+
+      <!-- Step 2 -->
+      <div class="step-row reveal">
+        <div class="step-empty"></div>
+        <div class="step-arrow">←</div>
+        <div class="step-card">
+          <div class="step-num">STEP 2</div>
+          <div class="step-icon">🫀</div>
+          <div class="step-title">前測：靜息 HRV 量測</div>
+          <p class="step-desc">使用 KYTO 心率感測器夾在耳垂或指尖，靜坐 2-3 分鐘後取得基準 HRV 數值。測量過程完全無痛、無侵入性，類似測心跳的感覺。這個數值代表你「吸氫前」的自律神經狀態。</p>
+          <div class="step-time">⏱ 約 5 分鐘</div>
+        </div>
+      </div>
+      <div class="step-conn-wrap left"><div class="step-connector"></div></div>
+
+      <!-- Step 3 -->
+      <div class="step-row reveal">
+        <div class="step-card">
+          <div class="step-num">STEP 3</div>
+          <div class="step-icon">💨</div>
+          <div class="step-title">氫氧吸入體驗</div>
+          <p class="step-desc">戴上鼻管，開始吸入高純度氫氧混合氣體。這段時間可以閱讀、滑手機或閉目養神——雙手完全自由。顧問會在旁說明氫氧科學原理，解答你心中的疑問，讓這 30 分鐘既放鬆又充實。</p>
+          <div class="step-time">⏱ 約 30 分鐘</div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-empty"></div>
+      </div>
+      <div class="step-conn-wrap right"><div class="step-connector"></div></div>
+
+      <!-- Step 4 -->
+      <div class="step-row reveal">
+        <div class="step-empty"></div>
+        <div class="step-arrow">←</div>
+        <div class="step-card">
+          <div class="step-num">STEP 4</div>
+          <div class="step-icon">📊</div>
+          <div class="step-title">後測：HRV 再次量測</div>
+          <p class="step-desc">吸氫結束後，再次使用 KYTO 感測器量測 HRV。前後兩筆數據會即時對比，讓你直接在螢幕上看到數字的變化。這是最真實的身體反饋——不是品牌說好才是好。</p>
+          <div class="step-time">⏱ 約 5 分鐘</div>
+        </div>
+      </div>
+      <div class="step-conn-wrap left"><div class="step-connector"></div></div>
+
+      <!-- Step 5 -->
+      <div class="step-row reveal">
+        <div class="step-card">
+          <div class="step-num">STEP 5</div>
+          <div class="step-icon">📄</div>
+          <div class="step-title">報告解讀與諮詢</div>
+          <p class="step-desc">顧問根據前後測數據，搭配你的問卷內容，提供個人化的健康建議。報告會儲存至你的個人雲端資料夾，隨時可回顧。若有意願購機，此時也可討論最適合的方案。</p>
+          <div class="step-time">⏱ 約 15-20 分鐘</div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-empty"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 量測設備 -->
+<section class="section" style="background:var(--white)">
+  <div class="container" style="max-width:860px">
+    <div class="reveal" style="text-align:center;margin-bottom:8px">
+      <span class="section-label">量測設備</span>
+      <h2 class="section-title">KYTO 心律感測器</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">鈦氫採用國際認可的光體積描記（PPG）感測器，搭配 Elite HRV 軟體進行分析，提供科學化的自律神經平衡評估。</p>
+    </div>
+    <div class="device-grid reveal">
+      <div class="device-visual" style="padding:0;overflow:hidden;background:none;">
+        <img src="/images/hrv-consultation.jpeg" alt="HRV 評估諮詢現場" style="width:100%;height:100%;object-fit:cover;border-radius:16px;">
+      </div>
+      <div class="device-specs">
+        <div class="device-name">KYTO PPG 感測器</div>
+        <div class="device-sub">搭配 Elite HRV App 分析平台</div>
+        <table class="spec-table">
+          <tr><td>感測技術</td><td>光體積描記（PPG）</td></tr>
+          <tr><td>量測位置</td><td>耳垂 / 指尖（二擇一）</td></tr>
+          <tr><td>量測時間</td><td>靜坐 2-3 分鐘</td></tr>
+          <tr><td>分析平台</td><td>Elite HRV（雲端存儲）</td></tr>
+          <tr><td>數據指標</td><td>RMSSD、LF/HF、自律神經指數</td></tr>
+          <tr><td>報告格式</td><td>PDF / 雲端互動版</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 報告內容 -->
+<section class="section" style="background:var(--gold-pale)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:8px">
+      <span class="section-label">評估報告</span>
+      <h2 class="section-title">你會拿到什麼</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">每次評估完成後，系統自動產生個人化報告，包含以下核心指標。</p>
+    </div>
+    <div class="result-cards">
+      <div class="result-card reveal">
+        <div class="result-icon">📈</div>
+        <div class="result-title">前後對比圖表</div>
+        <p class="result-desc">直觀顯示吸氫前後的 HRV 數值變化，以視覺化方式呈現你的身體反應。</p>
+      </div>
+      <div class="result-card reveal" style="transition-delay:.1s">
+        <div class="result-icon">⚖️</div>
+        <div class="result-title">自律神經平衡評分</div>
+        <p class="result-desc">交感與副交感神經的比例分析，了解你目前的身心壓力狀態。</p>
+      </div>
+      <div class="result-card reveal" style="transition-delay:.2s">
+        <div class="result-icon">💡</div>
+        <div class="result-title">個人化生活建議</div>
+        <p class="result-desc">根據你的問卷與數據，顧問提供貼近生活的調整建議，非泛用說明。</p>
+      </div>
+    </div>
+
+    <div class="report-preview reveal">
+      <h3>📄 報告包含的指標</h3>
+      <p>以下為評估報告的核心數據欄位（實際格式以 PDF 報告為準）</p>
+      <div class="report-items">
+        <div class="report-item">
+          <div class="report-item-label">RMSSD（毫秒）</div>
+          <div class="report-item-val">副交感神經活性指標，數值越高代表恢復力越佳</div>
+        </div>
+        <div class="report-item">
+          <div class="report-item-label">HRV 評分</div>
+          <div class="report-item-val">綜合評分，對照同齡參考範圍，了解相對位置</div>
+        </div>
+        <div class="report-item">
+          <div class="report-item-label">LF/HF 比值</div>
+          <div class="report-item-val">交感與副交感平衡比，壓力指標的核心參數</div>
+        </div>
+        <div class="report-item">
+          <div class="report-item-label">趨勢圖（訂閱用戶）</div>
+          <div class="report-item-val">長期複測數據累積，觀察 HRV 隨時間的改善軌跡</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 常見問題 -->
+<section class="section" style="background:var(--white)">
+  <div class="container" style="max-width:720px">
+    <div class="reveal" style="text-align:center;margin-bottom:40px">
+      <span class="section-label">評估問題</span>
+      <h2 class="section-title">關於 HRV 評估的常見疑問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal"><button class="faq-q">HRV 評估有任何風險嗎？<span class="faq-icon">＋</span></button><div class="faq-a"><div class="faq-a-inner">完全沒有。KYTO 感測器僅透過光線感測心跳，不接觸任何電流，類似市售穿戴裝置的原理。吸氫體驗本身也是非侵入性的，依建議方式使用（30 分鐘、保持通風）安全無虞。</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q">評估當天我需要做什麼準備？<span class="faq-icon">＋</span></button><div class="faq-a"><div class="faq-a-inner">建議評估前 2 小時避免劇烈運動、大量咖啡因或濃茶，並保持正常用餐。前一晚盡量睡眠充足，因為睡眠品質會直接影響 HRV 數值，讓結果更具參考性。</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q">如果我的 HRV 前後沒有顯著變化怎麼辦？<span class="faq-icon">＋</span></button><div class="faq-a"><div class="faq-a-inner">HRV 受當天多重因素影響（睡眠、情緒、飲食等），單次體驗變化幅度因人而異。部分人第一次反應不明顯，但多次複測後可看到趨勢。鈦氫不以「一定有效」作為銷售話術，真實數據才是最有力的說明。</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q">報告可以和醫生分享嗎？<span class="faq-icon">＋</span></button><div class="faq-a"><div class="faq-a-inner">可以。HRV 是科學界廣泛使用的自律神經評估指標，報告中的 RMSSD 等數值為標準格式，可供有興趣的醫師參考。但請注意，鈦氫的報告為健康管理參考，非醫療診斷報告。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="background:var(--dark);text-align:center">
+  <div class="container reveal" style="max-width:640px">
+    <span class="section-label" style="color:var(--gold-light);border-color:var(--gold-light)">立即預約</span>
+    <h2 style="font-family:'Noto Serif TC',serif;font-size:clamp(24px,3vw,36px);color:#fff;margin:16px 0 12px">讓數據說話，而非感覺</h2>
+    <p style="color:rgba(255,255,255,.7);font-size:15px;margin-bottom:32px">體驗費 NT$500，購機可全額折抵。一次完整的 HRV 評估，讓你對自己的身體有全新認識。</p>
+    <a href="https://line.me/R/ti/p/@tihy" class="btn btn-primary" target="_blank" style="font-size:16px;padding:14px 36px">LINE 預約到府體驗</a>
+    <p style="color:rgba(255,255,255,.4);font-size:12px;margin-top:16px">平均等候時間：2-3 個工作日 · 服務範圍：雙北、桃園</p>
+  </div>
+</section>
+
+<script src="/assets/shared.js"></script>
+</body>
+</html>

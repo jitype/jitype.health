@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>到府體驗服務｜鈦氫 TIHY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/assets/shared.css"/>
+  <style>
+    .visit-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .visit-visual { background: linear-gradient(135deg, var(--gold-pale) 0%, #fde8c8 100%); border-radius: 20px; height: 320px; display: flex; align-items: center; justify-content: center; font-size: 100px; }
+    .visit-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: #fff; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 100px; margin-bottom: 16px; }
+    .visit-text h2 { font-family: 'Noto Serif TC', serif; font-size: clamp(22px,3vw,32px); font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+    .visit-text p { font-size: 15px; color: var(--brown); line-height: 1.9; margin-bottom: 16px; }
+
+    .book-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 48px; position: relative; }
+    .book-steps::before { content: ''; position: absolute; top: 36px; left: calc(12.5%); right: calc(12.5%); height: 2px; background: linear-gradient(90deg, var(--orange), var(--gold)); z-index: 0; }
+    .book-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; position: relative; z-index: 1; }
+    .book-step-circle { width: 72px; height: 72px; border-radius: 50%; background: var(--white); border: 3px solid var(--orange); display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(224,123,26,.2); }
+    .book-step-num { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--orange); margin-bottom: 6px; }
+    .book-step-title { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .book-step-desc { font-size: 12px; color: var(--brown); line-height: 1.6; }
+
+    .why-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .why-card { background: var(--white); border-radius: 16px; padding: 32px; border: 1px solid var(--border); }
+    .why-icon { font-size: 40px; margin-bottom: 16px; }
+    .why-title { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .why-desc { font-size: 13px; color: var(--brown); line-height: 1.8; }
+
+    .checklist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 48px; }
+    .checklist-block { background: var(--white); border-radius: 16px; padding: 32px; border: 1px solid var(--border); }
+    .checklist-title { font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .checklist-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 14px; color: var(--brown); line-height: 1.6; }
+    .check-icon { color: var(--orange); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+    .area-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px; }
+    .area-card { border-radius: 12px; padding: 24px; text-align: center; }
+    .area-card.avail { background: var(--gold-pale); border: 2px solid var(--gold); }
+    .area-card.soon { background: #f5f5f5; border: 2px solid #ddd; }
+    .area-tag { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 8px; }
+    .area-tag.ok { color: var(--orange); }
+    .area-tag.nd { color: #aaa; }
+    .area-name { font-size: 17px; font-weight: 700; color: var(--dark); }
+    .area-detail { font-size: 12px; color: var(--brown); margin-top: 6px; }
+
+    .price-box { background: var(--dark); border-radius: 20px; padding: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 48px; }
+    .price-left h3 { font-family: 'Noto Serif TC', serif; font-size: 22px; color: #fff; margin-bottom: 8px; }
+    .price-left p { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.8; }
+    .price-amount { font-size: 48px; font-weight: 900; color: var(--gold-light); }
+    .price-unit { font-size: 14px; color: rgba(255,255,255,.6); margin-left: 4px; }
+    .price-note { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 8px; }
+    .price-right { display: flex; flex-direction: column; gap: 12px; }
+    .price-feature { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,.85); }
+    .price-check { color: var(--gold-light); font-size: 16px; }
+
+    @media (max-width:900px) {
+      .visit-intro { grid-template-columns: 1fr; }
+      .book-steps { grid-template-columns: repeat(2,1fr); gap: 32px; }
+      .book-steps::before { display: none; }
+      .why-cards { grid-template-columns: 1fr; }
+      .checklist-grid { grid-template-columns: 1fr; }
+      .area-cards { grid-template-columns: 1fr; }
+      .price-box { grid-template-columns: 1fr; gap: 24px; padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">首頁</a><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>服務說明 · 到府體驗服務</span>
+    </div>
+    <span class="section-label">服務說明</span>
+    <h1>到府體驗服務</h1>
+    <p>不用出門、不用跑展場——鈦氫顧問帶著氫氧機直接到你家，在最自然舒適的環境中完成完整體驗與 HRV 評估。</p>
+  </div>
+</section>
+
+<!-- 服務介紹 -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="visit-intro">
+      <div class="visit-visual reveal-l" style="padding:0;overflow:hidden;background:none;">
+        <img src="/images/lifestyle-sofa.jpeg" alt="到府體驗服務：在家進行氫氧吸入" style="width:100%;height:100%;object-fit:cover;border-radius:20px;">
+      </div>
+      <div class="visit-text reveal-r">
+        <div class="visit-badge">⭐ 鈦氫核心服務</div>
+        <h2>在你最放鬆的地方，感受真實的差異</h2>
+        <p>展示間的燈光、人群、銷售壓力——這些都會干擾你的身心狀態，也會影響 HRV 數值的真實性。</p>
+        <p>鈦氫選擇到府服務，就是為了讓你在最接近日常的環境中體驗氫氧吸入，讓前後測的 HRV 對比更具參考意義。沒有銷售場的壓力，只有數據與你自己的感受。</p>
+        <a href="https://line.me/R/ti/p/@tihy" class="btn btn-primary" target="_blank">LINE 預約到府體驗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 預約流程 -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:8px">
+      <span class="section-label">預約流程</span>
+      <h2 class="section-title">四步驟輕鬆預約</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">從加 LINE 到顧問到府，最快 2 個工作日完成。</p>
+    </div>
+    <div class="book-steps">
+      <div class="book-step reveal">
+        <div class="book-step-circle">💬</div>
+        <div class="book-step-num">STEP 1</div>
+        <div class="book-step-title">加 LINE 詢問</div>
+        <p class="book-step-desc">掃描 QR Code 或搜尋帳號，告知希望體驗的時段與所在縣市</p>
+      </div>
+      <div class="book-step reveal" style="transition-delay:.08s">
+        <div class="book-step-circle">📅</div>
+        <div class="book-step-num">STEP 2</div>
+        <div class="book-step-title">確認時間地址</div>
+        <p class="book-step-desc">顧問回覆可用時段，雙方確認後完成預約（確認後即保留名額）</p>
+      </div>
+      <div class="book-step reveal" style="transition-delay:.16s">
+        <div class="book-step-circle">🚗</div>
+        <div class="book-step-num">STEP 3</div>
+        <div class="book-step-title">顧問到府服務</div>
+        <p class="book-step-desc">顧問攜帶氫氧機與 KYTO 感測器準時到達，進行完整 HRV 評估體驗</p>
+      </div>
+      <div class="book-step reveal" style="transition-delay:.24s">
+        <div class="book-step-circle">📄</div>
+        <div class="book-step-num">STEP 4</div>
+        <div class="book-step-title">收到評估報告</div>
+        <p class="book-step-desc">體驗結束後 24 小時內，報告連結傳至你的 LINE，隨時可回顧</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 為什麼選擇到府 -->
+<section class="section" style="background:var(--gold-pale)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:8px">
+      <span class="section-label">服務優勢</span>
+      <h2 class="section-title">為什麼選擇到府體驗？</h2>
+    </div>
+    <div class="why-cards">
+      <div class="why-card reveal">
+        <div class="why-icon">🎯</div>
+        <div class="why-title">數據更真實</div>
+        <p class="why-desc">在自己家中量測的 HRV 基準值，比在嘈雜展場更接近你的真實日常狀態，對比結果更有參考意義。</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.1s">
+        <div class="why-icon">🛋️</div>
+        <div class="why-title">零通勤壓力</div>
+        <p class="why-desc">不用請假、不用停車、不用找路。顧問上門，你只需要準備一個舒適的座位，其餘由我們打理。</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.2s">
+        <div class="why-icon">🗣️</div>
+        <div class="why-title">一對一深度諮詢</div>
+        <p class="why-desc">沒有其他客戶在場，你可以放心提問、坦誠分享健康狀況，顧問也能提供更貼近你實際需求的建議。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 準備事項 -->
+<section class="section" style="background:var(--white)">
+  <div class="container" style="max-width:860px">
+    <div class="reveal" style="text-align:center;margin-bottom:8px">
+      <span class="section-label">注意事項</span>
+      <h2 class="section-title">體驗前後的準備與建議</h2>
+    </div>
+    <div class="checklist-grid">
+      <div class="checklist-block reveal-l">
+        <div class="checklist-title">✅ 體驗前請準備</div>
+        <div class="checklist-item"><span class="check-icon">✓</span><span>確保體驗空間通風良好（房間或客廳均可）</span></div>
+        <div class="checklist-item"><span class="check-icon">✓</span><span>準備一張有靠背的椅子或沙發，供 30 分鐘的靜坐吸氫</span></div>
+        <div class="checklist-item"><span class="check-icon">✓</span><span>體驗前 2 小時避免劇烈運動、大量咖啡因</span></div>
+        <div class="checklist-item"><span class="check-icon">✓</span><span>正常用餐，不需空腹</span></div>
+        <div class="checklist-item"><span class="check-icon">✓</span><span>若當日有特殊身體不適（發燒、急性疼痛），請提前告知顧問重新安排</span></div>
+      </div>
+      <div class="checklist-block reveal-r">
+        <div class="checklist-title">💡 體驗中小提醒</div>
+        <div class="checklist-item"><span class="check-icon">✓</span><span>吸氫期間可自由閱讀、使用手機，無需保持特定姿勢</span></div>
+        <div class="checklist-item"><span class="check-icon">✓</span><span>感受到任何不適（罕見）可隨時告知顧問停止</span></div>
+        <div class="checklist-item"><span class="check-icon">✓</span><span>吸氫中避免明火（香菸、點燃的蠟燭等），保持基本通風</span></div>
+        <div class="checklist-item"><span class="check-icon">✓</span><span>HRV 量測時請保持靜坐，避免說話，讓數值更穩定</span></div>
+        <div class="checklist-item"><span class="check-icon">✓</span><span>體驗全程約 60-90 分鐘，請預留足夠時間</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 服務範圍 -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:8px">
+      <span class="section-label">服務範圍</span>
+      <h2 class="section-title">目前開放的服務區域</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">其他縣市如有需求，歡迎 LINE 詢問，我們視情況安排。</p>
+    </div>
+    <div class="area-cards">
+      <div class="area-card avail reveal">
+        <div class="area-tag ok">✓ 現已開放</div>
+        <div class="area-name">台北市</div>
+        <div class="area-detail">全區服務</div>
+      </div>
+      <div class="area-card avail reveal" style="transition-delay:.08s">
+        <div class="area-tag ok">✓ 現已開放</div>
+        <div class="area-name">新北市</div>
+        <div class="area-detail">全區服務</div>
+      </div>
+      <div class="area-card avail reveal" style="transition-delay:.16s">
+        <div class="area-tag ok">✓ 現已開放</div>
+        <div class="area-name">桃園市</div>
+        <div class="area-detail">全區服務</div>
+      </div>
+    </div>
+    <p class="reveal" style="text-align:center;margin-top:24px;font-size:13px;color:var(--brown)">新竹、台中、高雄等地陸續開放中，敬請關注。</p>
+  </div>
+</section>
+
+<!-- 費用說明 -->
+<section class="section" style="background:var(--white)">
+  <div class="container" style="max-width:800px">
+    <div class="price-box reveal">
+      <div class="price-left">
+        <h3>到府體驗費用</h3>
+        <p>含 HRV 前後測評估、60 分鐘氫氧吸入體驗、個人化報告，以及一對一健康諮詢。</p>
+        <div style="margin-top:24px">
+          <span class="price-amount">500</span>
+          <span class="price-unit">NT$ / 次</span>
+        </div>
+        <p class="price-note">購機後全額折抵 · 7 天體驗期內可決定</p>
+      </div>
+      <div class="price-right">
+        <div class="price-feature"><span class="price-check">✦</span> HRV 前後測 + 個人報告</div>
+        <div class="price-feature"><span class="price-check">✦</span> 60 分鐘氫氧吸入體驗</div>
+        <div class="price-feature"><span class="price-check">✦</span> 一對一健康諮詢</div>
+        <div class="price-feature"><span class="price-check">✦</span> 報告永久保存可回顧</div>
+        <div class="price-feature"><span class="price-check">✦</span> 無銷售壓力承諾</div>
+        <div style="margin-top:24px">
+          <a href="https://line.me/R/ti/p/@tihy" class="btn btn-primary" target="_blank">立即 LINE 預約</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--gold-pale)">
+  <div class="container" style="max-width:720px">
+    <div class="reveal" style="text-align:center;margin-bottom:40px">
+      <span class="section-label">常見疑問</span>
+      <h2 class="section-title">到府服務常見問題</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal"><button class="faq-q">顧問到府會不會有銷售壓力？<span class="faq-icon">＋</span></button><div class="faq-a"><div class="faq-a-inner">不會。鈦氫的到府服務以體驗與評估為主，顧問的職責是幫你完成 HRV 量測並解讀報告。若你對機型有興趣，可以主動詢問，顧問不會主動催促購買。7 天體驗期讓你有充分時間考慮。</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q">家裡空間小，顧問能來嗎？<span class="faq-icon">＋</span></button><div class="faq-a"><div class="faq-a-inner">完全可以。氫氧機本身不大（約行李箱大小），加上量測設備也相當輕便。只需要一個有座位的空間即可，不需要特別騰出大面積。</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q">可以取消或改期嗎？<span class="faq-icon">＋</span></button><div class="faq-a"><div class="faq-a-inner">可以。請在預約時間前 24 小時透過 LINE 告知，我們可免費協助改期一次。當日臨時取消因顧問行程已調整，可能需收取 NT$200 的出行補貼，感謝體諒。</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q">家中長輩也可以一起體驗嗎？<span class="faq-icon">＋</span></button><div class="faq-a"><div class="faq-a-inner">可以，但每次到府僅附一組 HRV 量測（體驗費 NT$500）。若家中多人都想要量測報告，可事先告知顧問，確認時間充裕後安排加測（每增加一組 HRV 量測加收 NT$300）。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/shared.js"></script>
+</body>
+</html>

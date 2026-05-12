@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HRV 是什麼｜鈦氫 TIHY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/assets/shared.css?v=2"/>
+  <style>
+    .hrv-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .hrv-visual {
+      background: linear-gradient(135deg, var(--dark), #3D2500);
+      border-radius: 16px; padding: 40px 32px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .hrv-chart-label { font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,.5); margin-bottom: 8px; }
+    .hrv-bars { display: flex; align-items: flex-end; gap: 5px; height: 90px; }
+    .hrv-bar { flex: 1; background: var(--gold-light); border-radius: 3px 3px 0 0; opacity: .6; transition: opacity .3s; }
+    .hrv-bar:hover { opacity: 1; }
+    .hrv-stat-row { display: flex; gap: 16px; margin-top: 8px; }
+    .hrv-stat { flex: 1; background: rgba(255,255,255,.08); border-radius: 8px; padding: 14px; text-align: center; }
+    .hrv-stat-num { font-family: 'Noto Serif TC', serif; font-size: 28px; font-weight: 700; color: var(--gold-light); }
+    .hrv-stat-label { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 3px; }
+
+    .nervous-section { background: var(--gold-pale); }
+    .nervous-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .nervous-card {
+      background: var(--white); border-radius: 12px; padding: 32px;
+      border: 1px solid var(--border); transition: all .3s;
+    }
+    .nervous-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(44,31,14,.08); }
+    .nervous-card h3 { font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .nervous-card p { font-size: 14px; color: var(--brown); line-height: 1.8; }
+    .nervous-card ul { margin-top: 14px; padding-left: 16px; display: flex; flex-direction: column; gap: 6px; }
+    .nervous-card ul li { list-style: disc; font-size: 13px; color: var(--brown); }
+
+    .score-section { background: var(--cream); }
+    .score-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .score-card {
+      border-radius: 12px; overflow: hidden; border: 1px solid var(--border);
+      background: var(--white); transition: all .3s;
+    }
+    .score-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(44,31,14,.1); }
+    .score-head { padding: 20px 24px; }
+    .score-range { font-family: 'Noto Serif TC', serif; font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+    .score-label { font-size: 13px; font-weight: 600; }
+    .score-body { padding: 20px 24px; border-top: 1px solid var(--border); }
+    .score-body p { font-size: 13px; color: var(--brown); line-height: 1.7; }
+    .score-card.low .score-head { background: #FFF3F3; }
+    .score-card.low .score-range { color: #C94040; }
+    .score-card.low .score-label { color: #C94040; }
+    .score-card.mid .score-head { background: var(--gold-pale); }
+    .score-card.mid .score-range { color: var(--gold); }
+    .score-card.mid .score-label { color: var(--gold); }
+    .score-card.high .score-head { background: #F0FFF4; }
+    .score-card.high .score-range { color: #27AE60; }
+    .score-card.high .score-label { color: #27AE60; }
+
+    .kyto-section { background: var(--white); }
+    .kyto-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .kyto-step { text-align: center; padding: 28px 20px; }
+    .kyto-icon { width: 64px; height: 64px; background: var(--gold-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 16px; }
+    .kyto-num { font-size: 11px; letter-spacing: 2px; color: var(--gold); margin-bottom: 8px; }
+    .kyto-title { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .kyto-desc { font-size: 13px; color: var(--brown); line-height: 1.7; }
+
+    @media (max-width: 900px) {
+      .hrv-intro-grid { grid-template-columns: 1fr; gap: 40px; }
+      .nervous-grid { grid-template-columns: 1fr; }
+      .score-grid { grid-template-columns: 1fr; }
+      .kyto-steps { grid-template-columns: 1fr 1fr; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">首頁</a>
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      <a href="/knowledge/articles.html">氫氧知識</a>
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>HRV 是什麼</span>
+    </div>
+    <span class="section-label">氫氧知識</span>
+    <h1>HRV 心律變異<br/>是什麼？</h1>
+    <p>心律變異（HRV）是目前科學界認可的自律神經健康客觀指標。了解 HRV，才能真正讀懂身體的語言。</p>
+  </div>
+</section>
+
+<!-- HRV 定義 -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="hrv-intro-grid">
+      <div class="reveal-l">
+        <div class="hrv-visual">
+          <div>
+            <div class="hrv-chart-label">▲ HRV 波形示意（前後對比）</div>
+            <div class="hrv-bars">
+              <div class="hrv-bar" style="height:40%"></div><div class="hrv-bar" style="height:65%"></div>
+              <div class="hrv-bar" style="height:35%"></div><div class="hrv-bar" style="height:70%"></div>
+              <div class="hrv-bar" style="height:50%"></div><div class="hrv-bar" style="height:80%"></div>
+              <div class="hrv-bar" style="height:45%"></div><div class="hrv-bar" style="height:75%"></div>
+              <div class="hrv-bar" style="height:55%"></div><div class="hrv-bar" style="height:85%"></div>
+              <div class="hrv-bar" style="height:60%"></div><div class="hrv-bar" style="height:90%"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:10px;color:rgba(255,255,255,.4);">
+              <span>吸氫前</span><span>吸氫後</span>
+            </div>
+          </div>
+          <div class="hrv-stat-row">
+            <div class="hrv-stat"><div class="hrv-stat-num">↑ 32%</div><div class="hrv-stat-label">RMSSD 平均提升</div></div>
+            <div class="hrv-stat"><div class="hrv-stat-num">5 min</div><div class="hrv-stat-label">測量時間</div></div>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,.25);text-align:center;">※ 數據為示意，個人結果因人而異</div>
+        </div>
+      </div>
+      <div class="reveal-r">
+        <span class="section-label">HRV 定義</span>
+        <h2 class="section-title">心跳間距的變化<br/>比心跳速率更能反映健康</h2>
+        <p class="section-sub">一般人以為心跳規律「整齊」才健康，但事實相反——健康的心臟每次跳動之間的時間間距，應該有微小但有規律的「變化」。這個變化量，就是 HRV（Heart Rate Variability，心律變異性）。</p>
+        <div style="margin-top:28px;display:flex;flex-direction:column;gap:14px;">
+          <div style="padding:16px;background:var(--gold-pale);border-radius:8px;border-left:3px solid var(--gold);">
+            <strong style="font-size:14px;color:var(--dark);">HRV 越高 ≠ 心跳越快</strong><br/>
+            <span style="font-size:13px;color:var(--brown);">HRV 是相鄰心跳時間差的統計值，與心跳速率（HR）是不同的概念。HRV 高通常代表自律神經系統的調節彈性較好。</span>
+          </div>
+          <div style="padding:16px;background:var(--gold-pale);border-radius:8px;border-left:3px solid var(--gold);">
+            <strong style="font-size:14px;color:var(--dark);">用 RMSSD 量化自律神經狀態</strong><br/>
+            <span style="font-size:13px;color:var(--brown);">鈦氫使用的 HRV 指標為 RMSSD（相鄰 RR 間期差值的均方根），是目前最常用於反映副交感神經活性的客觀數值。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 自律神經說明 -->
+<section class="section nervous-section">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:48px">
+      <span class="section-label">自律神經</span>
+      <h2 class="section-title">HRV 與自律神經的關係</h2>
+      <p class="section-sub">自律神經系統分為交感與副交感兩大分支，HRV 是衡量這兩者動態平衡的重要指標之一。</p>
+    </div>
+    <div class="nervous-grid">
+      <div class="nervous-card reveal-l">
+        <h3>⚡ 交感神經（戰鬥或逃跑）</h3>
+        <p>面對壓力、緊張、工作時主要啟動。長期處於高度活躍狀態，HRV 通常偏低，身體持續在「備戰」狀態。</p>
+        <ul>
+          <li>心跳加速、血壓升高</li>
+          <li>消化減緩、肌肉備戰</li>
+          <li>長期主導→易疲勞、睡眠品質下降</li>
+        </ul>
+      </div>
+      <div class="nervous-card reveal-r">
+        <h3>🌿 副交感神經（休息與修復）</h3>
+        <p>放鬆、休息、睡眠時主導。副交感神經活性高，HRV 數值通常較高，代表身體修復能力充足。</p>
+        <ul>
+          <li>心跳減緩、促進消化</li>
+          <li>支持睡眠品質、能量補充</li>
+          <li>長期均衡→身體恢復力佳</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:24px;background:var(--white);border-radius:12px;border:1px solid var(--border);text-align:center;" class="reveal">
+      <p style="font-size:15px;color:var(--dark);font-weight:600;">HRV 的高低，反映的是兩者之間的動態平衡與調節彈性</p>
+      <p style="font-size:13px;color:var(--brown);margin-top:8px;">數值本身沒有絕對標準，重要的是<strong>觀察個人基準線的趨勢變化</strong>，而非與他人比較。</p>
+    </div>
+  </div>
+</section>
+
+<!-- HRV 數值解讀 -->
+<section class="section score-section">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:48px">
+      <span class="section-label">數值解讀</span>
+      <h2 class="section-title">如何看懂你的 HRV 報告</h2>
+      <p class="section-sub">HRV 沒有「標準答案」，但以下是一般成人在靜息狀態下的參考區間。</p>
+    </div>
+    <div class="score-grid">
+      <div class="score-card low reveal">
+        <div class="score-head">
+          <div class="score-range">＜ 20ms</div>
+          <div class="score-label">偏低區間（RMSSD）</div>
+        </div>
+        <div class="score-body">
+          <p>可能反映近期壓力較大、睡眠不足或身體疲勞累積，自律神經調節彈性有待改善。建議關注休息品質。</p>
+        </div>
+      </div>
+      <div class="score-card mid reveal" style="transition-delay:.1s">
+        <div class="score-head">
+          <div class="score-range">20–50ms</div>
+          <div class="score-label">一般區間（RMSSD）</div>
+        </div>
+        <div class="score-body">
+          <p>多數成人的日常區間。此範圍內觀察個人趨勢最重要，持續追蹤可了解日常生活對自律神經的影響。</p>
+        </div>
+      </div>
+      <div class="score-card high reveal" style="transition-delay:.2s">
+        <div class="score-head">
+          <div class="score-range">＞ 50ms</div>
+          <div class="score-label">較佳區間（RMSSD）</div>
+        </div>
+        <div class="score-body">
+          <p>副交感神經活性較強，身體調節彈性較好。年輕族群及規律運動者較常出現此範圍。</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:24px;padding:20px 24px;background:var(--gold-pale);border-radius:8px;font-size:13px;color:var(--brown);border:1px solid var(--border);" class="reveal">
+      ⚠️ 以上數值僅供日常保健參考，不代表健康診斷。HRV 數值受睡眠、飲食、情緒、年齡、運動習慣等多重因素影響，解讀時應結合個人整體狀況，如有健康疑慮請諮詢醫師。
+    </div>
+  </div>
+</section>
+
+<!-- KYTO 測量流程 -->
+<section class="section kyto-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:48px">
+      <span class="section-label">測量方式</span>
+      <h2 class="section-title">鈦氫如何進行 HRV 測量</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">我們使用 KYTO 穿戴式心率裝置搭配 Elite HRV 應用，提供客觀可重複的測量結果。</p>
+    </div>
+    <div class="kyto-steps">
+      <div class="kyto-step reveal">
+        <div class="kyto-icon">⌚</div>
+        <div class="kyto-num">STEP 01</div>
+        <div class="kyto-title">佩戴 KYTO 裝置</div>
+        <p class="kyto-desc">將 KYTO 心率感應器夾於耳垂或指尖，連接藍牙，30秒即完成配對。</p>
+      </div>
+      <div class="kyto-step reveal" style="transition-delay:.1s">
+        <div class="kyto-icon">📱</div>
+        <div class="kyto-num">STEP 02</div>
+        <div class="kyto-title">Elite HRV 開始測量</div>
+        <p class="kyto-desc">靜坐放鬆，以腹式呼吸維持平穩，App 自動採集 5 分鐘的 RR 間期數據。</p>
+      </div>
+      <div class="kyto-step reveal" style="transition-delay:.2s">
+        <div class="kyto-icon">🫧</div>
+        <div class="kyto-num">STEP 03</div>
+        <div class="kyto-title">進行氫氧吸入</div>
+        <p class="kyto-desc">完成前測後，開始 30-40 分鐘的標準氫氧吸入，過程中可正常談話或閱讀。</p>
+      </div>
+      <div class="kyto-step reveal" style="transition-delay:.3s">
+        <div class="kyto-icon">📊</div>
+        <div class="kyto-num">STEP 04</div>
+        <div class="kyto-title">後測與報告輸出</div>
+        <p class="kyto-desc">吸入結束後立即進行後測，Claude HRV Skill 自動產出前後對比報告，當場查看。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/shared.js"></script>
+</body>
+</html>
