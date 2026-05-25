@@ -101,6 +101,10 @@
   .article-cta p{opacity:.85;margin-bottom:24px;color:var(--white)}
   .btn-primary{display:inline-block;background:var(--orange);color:var(--white);padding:14px 36px;border-radius:50px;font-weight:700;font-size:1rem}
   .article-updated{font-size:.8rem;color:#999;text-align:right;margin-top:40px}
+  .article-references{margin-top:48px;padding:28px 32px;background:var(--gold-pale);border-radius:16px;border:1px solid var(--border)}
+  .article-references h3{font-family:'Noto Serif TC',serif;font-size:1rem;color:var(--dark);margin-bottom:16px;letter-spacing:.03em}
+  .article-references ol{padding-left:20px;display:flex;flex-direction:column;gap:8px}
+  .article-references li{font-size:.82rem;color:var(--brown);line-height:1.7}
 
   /* 圖表樣式 */
   .chart-bar-wrap{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:32px 0}
@@ -152,7 +156,7 @@
 
       <h2>自由基從哪裡來？你每天都在製造</h2>
       <p>自由基並非完全來自外部污染，細胞本身的能量代謝（尤其是粒線體的 ATP 合成）就會持續產生活性氧物質（Reactive Oxygen Species, ROS）。正常情況下，身體的抗氧化系統能即時清除多餘自由基；但當產生量超過清除能力，就形成「氧化壓力（Oxidative Stress）」——你可以把它理解為體內的「生鏽」。</p>
-      <p>加速自由基產生的現代因素包括：空氣污染、紫外線曝曬、高糖飲食、慢性睡眠不足、情緒壓力，以及激烈運動後的代謝高峰。2023 年發表於《Antioxidants》期刊的綜合分析指出，現代都市居民的血漿氧化壓力指標（MDA 值）平均比 1990 年代高出 18–25%。換句話說，即使你自認生活習慣不差，你的細胞每天承受的氧化壓力，已遠高於上一代人。</p>
+      <p>加速自由基產生的現代因素包括：空氣污染、紫外線曝曬、高糖飲食、慢性睡眠不足、情緒壓力，以及激烈運動後的代謝高峰。系統性回顧顯示，氧化壓力相關生物指標（包括 MDA 等脂質過氧化終產物）長期偏高與心血管疾病、神經退化、代謝症候群等慢性病的發生風險密切相關，在現代生活型態下尤為突出（Liguori I et al., <em>Clin Interv Aging</em>, 2018）。換句話說，即使你自認生活習慣不差，你的細胞每天承受的氧化壓力，已遠高於上一代人。</p>
 
       <!-- 自由基主要來源圖表 -->
       <div class="chart-bar-wrap reveal">
@@ -181,12 +185,12 @@
       </div>
 
       <h2>氧化壓力如何一步步破壞細胞、加速老化</h2>
-      <p>你有沒有疑惑過，為什麼有些人 50 歲看起來只有 40？氧化壓力的累積速率，正是其中最關鍵的變數。自由基對細胞的傷害是多層次且累積的：它們氧化細胞膜上的脂肪酸，導致養分吸收與廢物排出受阻；攻擊 DNA 鹼基，增加基因突變風險。2019 年《Nature Metabolism》的研究估算，人體每個細胞每天承受約 10,000 次氧化性 DNA 損傷，雖然大部分可被修復，但隨年齡增長修復效率會下降 30–50%——這意味著每過幾年，細胞累積的「未修復損傷」就越多。</p>
+      <p>你有沒有疑惑過，為什麼有些人 50 歲看起來只有 40？氧化壓力的累積速率，正是其中最關鍵的變數。自由基對細胞的傷害是多層次且累積的：它們氧化細胞膜上的脂肪酸，導致養分吸收與廢物排出受阻；攻擊 DNA 鹼基，增加基因突變風險。研究估算，人體每個細胞每天承受約 10,000 次氧化性 DNA 損傷，雖然大部分可被修復，但隨年齡增長修復效率會顯著下降——這意味著每過幾年，細胞累積的「未修復損傷」就越多（Ames BN et al., <em>Proc Natl Acad Sci U S A</em>, 1993；Liguori I et al., <em>Clin Interv Aging</em>, 2018）。</p>
       <p>長期累積的氧化壓力還會使蛋白質發生「糖化交聯」，形成晚期糖化終產物（AGEs），讓皮膚失去彈性、血管壁硬化、神經傳導效率降低。這不只是外觀問題——第二型糖尿病、心血管疾病、神經退化性疾病，背後的共同病理基礎，都指向同一個源頭：長年積累的氧化壓力。</p>
 
       <h2>身體天生的抗氧化防禦：為何仍不夠用</h2>
       <p>人體並非毫無防禦。超氧化物歧化酶（SOD）、過氧化氫酶（CAT）、麩胱甘肽過氧化酶（GPx）等內源性抗氧化酶，以及從飲食攝取的維生素 C、E、多酚類化合物，共同構成抗氧化防禦網路。</p>
-      <p>然而，問題在於「過剩清除」。維生素 C、E 等傳統抗氧化劑屬於非選擇性，會同時中和有益與有害的自由基；而人體部分生理訊號（如細胞增殖、免疫啟動）本身就需要適量自由基作為傳訊分子。大劑量補充傳統抗氧化劑，反而可能干擾正常氧化還原訊號，這也是為何多項大型研究（包括 2005 年 JAMA 刊載的 meta-analysis）發現高劑量維生素 E 補充與全因死亡率上升有關。</p>
+      <p>然而，問題在於「過剩清除」。維生素 C、E 等傳統抗氧化劑屬於非選擇性，會同時中和有益與有害的自由基；而人體部分生理訊號（如細胞增殖、免疫啟動）本身就需要適量自由基作為傳訊分子。大劑量補充傳統抗氧化劑，反而可能干擾正常氧化還原訊號，這也是為何大型薈萃分析發現，高劑量維生素 E 補充（≥400 IU/d）與全因死亡率上升有關（Miller ER 3rd et al., <em>Ann Intern Med.</em>, 2005）。</p>
 
       <!-- 數據亮點橫幅 -->
       <div class="stat-banner reveal">
@@ -206,7 +210,7 @@
 
       <h2>為何氫分子（H₂）被視為新一代選擇性抗氧化劑</h2>
       <p>近年興起的氫分子醫學研究，提出了一個新的視角。<a href="../products/flagship.html">分子氫（H₂）</a>體積極小，能穿越細胞膜與血腦屏障，但它只與毒性最強的自由基——羥基自由基（·OH）與亞硝酸陰離子（ONOO⁻）發生反應，不影響過氧化氫（H₂O₂）等具有細胞訊號功能的活性氧。</p>
-      <p>2007 年日本醫科大學太田成男教授在《Nature Medicine》發表的里程碑研究，首次以動物模型證明吸入氫氣可顯著降低腦缺血再灌注損傷。此後，研究範圍擴展至代謝症候群、運動後疲勞恢復、睡眠品質改善等多個領域。台灣國立成功大學 2021 年的臨床研究也顯示，受試者每日吸氫 60 分鐘，連續 4 週後，血漿 8-OHdG（DNA 氧化損傷指標）下降達 23%。</p>
+      <p>2007 年，日本醫科大學研究團隊在《Nature Medicine》發表的里程碑研究，首次以動物模型證明氫氣能選擇性清除毒性最強的羥自由基（·OH），並顯著降低腦缺血再灌注損傷（Ohsawa I et al., <em>Nat Med.</em>, 2007）。此後，研究範圍擴展至代謝症候群、運動後疲勞恢復、睡眠品質改善等多個領域。後續多項臨床研究也顯示，規律吸氫可使氧化損傷指標 8-OHdG（DNA 氧化損傷的直接生物標記）顯著下降。</p>
       <p>重要的是，由於 H₂ 是選擇性的，它在清除有害自由基的同時，保留了細胞正常運作所需的氧化還原訊號——這正是傳統抗氧化劑難以做到之處。</p>
 
       <!-- 資訊卡片：三種抗氧化方式比較 -->
@@ -270,7 +274,18 @@
         <a href="..//#contact" class="btn-primary">預約 HRV 到府評估</a>
       </div>
 
-      <p class="article-updated">最後更新：2026-03-20</p>
+      <div class="article-references">
+        <h3>參考文獻</h3>
+        <ol>
+          <li>Liguori I, Russo G, Curcio F, et al. Oxidative stress, aging, and diseases. <em>Clin Interv Aging.</em> 2018;13:757–772. doi:10.2147/CIA.S158513</li>
+          <li>Ames BN, Shigenaga MK, Hagen TM. Oxidants, antioxidants, and the degenerative diseases of aging. <em>Proc Natl Acad Sci U S A.</em> 1993;90(17):7915–7922. doi:10.1073/pnas.90.17.7915</li>
+          <li>Miller ER 3rd, Pastor-Barriuso R, Dalal D, et al. Meta-analysis: high-dosage vitamin E supplementation may increase all-cause mortality. <em>Ann Intern Med.</em> 2005;142(1):37–46. doi:10.7326/0003-4819-142-1-200501040-00110</li>
+          <li>Ohsawa I, Ishikawa M, Takahashi K, et al. Hydrogen acts as a therapeutic antioxidant by selectively reducing cytotoxic oxygen radicals. <em>Nat Med.</em> 2007;13(6):688–694. doi:10.1038/nm1577</li>
+          <li>Halliwell B, Gutteridge JMC. <em>Free Radicals in Biology and Medicine.</em> 6th ed. Oxford University Press; 2015.</li>
+        </ol>
+      </div>
+
+      <p class="article-updated">最後更新：2026-05-26</p>
     </div>
   </article>
   <script src="../assets/shared.js?v=2"></script>
