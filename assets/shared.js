@@ -95,11 +95,18 @@
     <h2 class="section-title reveal">讓數據陪你做更好的<br/>健康選擇</h2>
     <p class="section-sub reveal">加入極態 LINE OA，預約 HRV 到府健康評估。</p>
     <div class="cta-actions reveal">
-      <a href="https://line.me/R/ti/p/@tihy" class="btn-line" target="_blank">
+      <a href="/images/line-oa-qr.png" class="btn-line" target="_blank">
         <svg viewBox="0 0 24 24"><path d="M21.5 10.2c0-4.5-4.5-8.2-10-8.2s-10 3.7-10 8.2c0 4 3.6 7.4 8.4 8.1.3.1.8.2.9.5.1.3 0 .6 0 .9l-.1.9c0 .3-.2 1.1.9.6 1.1-.5 6-3.5 8.2-6 1.5-1.6 2.7-3.7 2.7-6z"/></svg>
         加入 LINE 預約體驗
       </a>
       <a href="tel:+886912345678" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.3);padding:14px 28px;">📞 直接來電</a>
+    </div>
+    <div class="line-qr-panel reveal">
+      <img src="/images/line-oa-qr.png" alt="極態 JITYPE LINE OA QR Code" loading="lazy" decoding="async">
+      <div>
+        <strong>掃碼加入 LINE OA</strong>
+        <span>用手機掃描 QR Code，直接加入極態 JITYPE 官方 LINE。</span>
+      </div>
     </div>
   </div>
 </section>
@@ -133,10 +140,10 @@
       <div class="footer-col">
         <h5>聯絡管道</h5>
         <ul>
-          <li><a href="https://line.me/R/ti/p/@tihy" target="_blank">LINE OA 客服</a></li>
+          <li><a href="/images/line-oa-qr.png" target="_blank">LINE OA 客服</a></li>
           <li><a href="https://www.facebook.com/tihy.tw" target="_blank">Facebook 粉專</a></li>
           <li><a href="https://www.instagram.com/tihy.tw" target="_blank">Instagram</a></li>
-          <li><a href="https://line.me/R/ti/p/@tihy" target="_blank">LINE 洽詢</a></li>
+          <li><a href="/images/line-oa-qr.png" target="_blank">LINE 洽詢</a></li>
         </ul>
       </div>
     </div>
@@ -153,7 +160,7 @@
   </div>
 </footer>
 
-<a href="https://line.me/R/ti/p/@tihy" class="float-line-btn" target="_blank">
+<a href="/images/line-oa-qr.png" class="float-line-btn" target="_blank">
   <svg viewBox="0 0 24 24"><path d="M21.5 10.2c0-4.5-4.5-8.2-10-8.2s-10 3.7-10 8.2c0 4 3.6 7.4 8.4 8.1.3.1.8.2.9.5.1.3 0 .6 0 .9l-.1.9c0 .3-.2 1.1.9.6 1.1-.5 6-3.5 8.2-6 1.5-1.6 2.7-3.7 2.7-6z"/></svg>
   LINE 免費諮詢
 </a>`;
@@ -172,7 +179,9 @@
 
   /* ── Inject (rewrite absolute paths to relative) ── */
   var nav = NAV_HTML.replace(/href="\//g, 'href="' + BASE);
-  var foot = FOOTER_HTML.replace(/href="\//g, 'href="' + BASE);
+  var foot = FOOTER_HTML
+    .replace(/href="\//g, 'href="' + BASE)
+    .replace(/src="\//g, 'src="' + BASE);
   document.body.insertAdjacentHTML('afterbegin', nav);
   document.body.insertAdjacentHTML('beforeend', foot);
 
