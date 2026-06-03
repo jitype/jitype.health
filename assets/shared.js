@@ -7,7 +7,7 @@
       <div class="logo-icon">
         <svg viewBox="0 0 24 24"><path d="M12 2 L2 20 L12 15 L22 20 Z"/></svg>
       </div>
-      <span class="logo-text">鈦<span>氫</span> TIHY</span>
+      <span class="logo-text">極態 <span>JITYPE</span></span>
     </a>
 
     <nav class="desktop-nav">
@@ -93,7 +93,7 @@
   <div class="container">
     <span class="section-label">立即開始</span>
     <h2 class="section-title reveal">讓數據陪你做更好的<br/>健康選擇</h2>
-    <p class="section-sub reveal">加入鈦氫 LINE OA，預約 HRV 到府健康評估。</p>
+    <p class="section-sub reveal">加入極態 LINE OA，預約 HRV 到府健康評估。</p>
     <div class="cta-actions reveal">
       <a href="https://line.me/R/ti/p/@tihy" class="btn-line" target="_blank">
         <svg viewBox="0 0 24 24"><path d="M21.5 10.2c0-4.5-4.5-8.2-10-8.2s-10 3.7-10 8.2c0 4 3.6 7.4 8.4 8.1.3.1.8.2.9.5.1.3 0 .6 0 .9l-.1.9c0 .3-.2 1.1.9.6 1.1-.5 6-3.5 8.2-6 1.5-1.6 2.7-3.7 2.7-6z"/></svg>
@@ -108,8 +108,8 @@
   <div class="container">
     <div class="footer-inner">
       <div>
-        <span class="footer-brand-text">鈦<span>氫</span> TIHY</span>
-        <p class="footer-desc">以數據量化健康改變<br/>以氫氧陪伴日常保健<br/>鈦氫是你忙碌生活中最安靜的守護</p>
+        <span class="footer-brand-text">極態 <span>JITYPE</span></span>
+        <p class="footer-desc">以數據量化健康改變<br/>以氫氧陪伴日常保健<br/>極態是你忙碌生活中最安靜的守護</p>
       </div>
       <div class="footer-col">
         <h5>機型介紹</h5>
@@ -142,7 +142,7 @@
     </div>
     <div class="footer-bottom">
       <div>
-        <p>© 2026 鈦氫 TIHY 有限公司</p>
+        <p>© 2026 極態 JITYPE 有限公司</p>
         <p class="footer-disclaimer">⚠️ 本網站所有內容僅供日常保健參考，氫氧機非醫療器材，不作為任何疾病之診斷或治療依據。身體不適請諮詢合格醫師。</p>
       </div>
       <div class="footer-links">
