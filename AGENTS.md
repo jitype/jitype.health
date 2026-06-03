@@ -3,8 +3,8 @@
 ## 專案身分
 
 - 這個 repo 是極態 JITYPE 官網。
-- 目前優先使用的正式網址是 `https://jitype.github.io/jitype/`。
-- GitHub repo 是 `https://github.com/jitype/jitype.git`。
+- 目前優先使用的正式網址是 `https://jitype.github.io/jitype.health/`。
+- GitHub repo 是 `https://github.com/jitype/jitype.health.git`。
 
 ## 圖片與浮水印規則
 

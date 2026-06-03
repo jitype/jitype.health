@@ -3,194 +3,194 @@
 
   <!-- 首頁 -->
   <url>
-    <loc>https://jitype.github.io/jitype/</loc>
+    <loc>https://jitype.github.io/jitype.health/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- 產品頁 -->
   <url>
-    <loc>https://jitype.github.io/jitype/products/flagship.html</loc>
+    <loc>https://jitype.github.io/jitype.health/products/flagship.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- 服務頁 -->
   <url>
-    <loc>https://jitype.github.io/jitype/service/hrv-process.html</loc>
+    <loc>https://jitype.github.io/jitype.health/service/hrv-process.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- 文章列表 -->
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/articles.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/articles.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- 知識庫文章 -->
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/free-radicals-hydrogen-mechanism.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/free-radicals-hydrogen-mechanism.html</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/hrv-energy-management-executives.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/hrv-energy-management-executives.html</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/hydrogen-machine-600-vs-1200.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/hydrogen-machine-600-vs-1200.html</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/intentional-rest-for-executives.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/intentional-rest-for-executives.html</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/low-hrv-silent-signals.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/low-hrv-silent-signals.html</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/sleep-quality-case-study.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/sleep-quality-case-study.html</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/business-travel-energy-management.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/business-travel-energy-management.html</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/ceo-hrv-tracking-3months.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/ceo-hrv-tracking-3months.html</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/hydrogen-vs-antioxidants.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/hydrogen-vs-antioxidants.html</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/hrv-before-after.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/hrv-before-after.html</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/chronic-inflammation.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/chronic-inflammation.html</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/stress-autonomic-nerve.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/stress-autonomic-nerve.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/autonomic-nerve-aging-40s.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/autonomic-nerve-aging-40s.html</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/best-time-to-inhale-hydrogen.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/best-time-to-inhale-hydrogen.html</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/hydrogen-water-vs-inhalation.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/hydrogen-water-vs-inhalation.html</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/mitochondria-energy.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/mitochondria-energy.html</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/sleep-fatigue-hrv.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/sleep-fatigue-hrv.html</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/hrv.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/hrv.html</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/hydrogen-inhalation-effects.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/hydrogen-inhalation-effects.html</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/hydrogen-machine-intro.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/hydrogen-machine-intro.html</loc>
     <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/h2-health-science.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/h2-health-science.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/free-radicals-aging.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/free-radicals-aging.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/hrv-stress-management.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/hrv-stress-management.html</loc>
     <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/h2-vs-h2o.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/h2-vs-h2o.html</loc>
     <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/faq.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/faq.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/executive-daily-routine.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/executive-daily-routine.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/30-day-h2-test.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/30-day-h2-test.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jitype.github.io/jitype/knowledge/science.html</loc>
+    <loc>https://jitype.github.io/jitype.health/knowledge/science.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

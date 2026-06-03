@@ -30,4 +30,4 @@ Allow: /
 User-agent: CCBot
 Disallow: /
 
-Sitemap: https://jitype.github.io/jitype/sitemap.xml
+Sitemap: https://jitype.github.io/jitype.health/sitemap.xml
