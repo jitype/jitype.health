@@ -37,3 +37,11 @@
 - When generating images that include a machine, device, product, hydrogen generator, oxygen/hydrogen equipment, or product-like hardware, use the user's actual product image as the image-to-image/reference source.
 - Do not invent machine or device appearance from a text-only prompt.
 - Before publishing or wiring a generated machine-related image into the website, verify that it was created from or replaced by an actual product reference image.
+
+## Product Image Gate
+
+- Any image that shows a hydrogen/oxygen machine must start from an actual JITYPE product image already in this repo or explicitly provided by the user.
+- Text prompts are allowed only for scene, lighting, crop, background, or composition. They are not allowed to define the machine body, screen, tubes, buttons, proportions, color, or industrial design.
+- If the output machine does not visually match the source product image, reject it. Do not crop it into a thumbnail, do not wire it into HTML, and do not commit it.
+- Before adding a machine-related asset to the website, inspect the final image and confirm these invariants: same product silhouette, same visible front/screen area when applicable, no invented machine, no invented brand, no fake medical device, no watermark.
+- If the model cannot preserve the product, use the original product photo or a deterministic crop/composite instead of an AI-generated replacement.
