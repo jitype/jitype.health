@@ -28,3 +28,12 @@
   - 所有引用圖片存在。
   - 縮圖或正式圖片經過視覺檢查。
 - 在推到 GitHub Pages 前，確認這次變更範圍，不要混入無關的草稿或原型檔。
+
+## Image Generation Rules / 生圖規則
+
+- 使用生圖時，如果畫面包含機器、設備、產品、氫氧機、氫氣/氧氣設備或任何類產品硬體，一定要使用使用者的實際產品圖片作為圖生圖或參考來源。
+- 不准只用文字提示憑空生成機器或設備外觀。
+- 任何機器相關生成圖要放進官網前，必須確認它是由實際產品參考生成，或改用實際產品圖片替代。
+- When generating images that include a machine, device, product, hydrogen generator, oxygen/hydrogen equipment, or product-like hardware, use the user's actual product image as the image-to-image/reference source.
+- Do not invent machine or device appearance from a text-only prompt.
+- Before publishing or wiring a generated machine-related image into the website, verify that it was created from or replaced by an actual product reference image.
