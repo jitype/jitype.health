@@ -45,3 +45,6 @@
 - If the output machine does not visually match the source product image, reject it. Do not crop it into a thumbnail, do not wire it into HTML, and do not commit it.
 - Before adding a machine-related asset to the website, inspect the final image and confirm these invariants: same product silhouette, same visible front/screen area when applicable, no invented machine, no invented brand, no fake medical device, no watermark.
 - If the model cannot preserve the product, use the original product photo or a deterministic crop/composite instead of an AI-generated replacement.
+- The main requirement is product correctness. The surrounding background, setting, props, lighting, and article-specific visual concept may be generated creatively to fit the article.
+- Do not default to taking an existing product photo and merely adding overlays, panels, charts, or decorative elements on top. Use the real product as the reference for the machine, then create a cohesive new article image around it.
+- Use deterministic crop/composite only as a fallback when image generation cannot preserve the real product accurately.
