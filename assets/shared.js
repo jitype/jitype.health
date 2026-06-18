@@ -1,3 +1,31 @@
+function computeBaseFromUrls(pageHref, scriptHref) {
+  function splitSegments(pathname) {
+    return pathname.split('/').filter(Boolean);
+  }
+
+  var pageUrl = new URL(pageHref);
+  var scriptUrl = new URL(scriptHref);
+  var pageDir = splitSegments(pageUrl.pathname.replace(/\/[^/]*$/, '/'));
+  var rootDir = splitSegments(new URL('../', scriptUrl.href).pathname);
+  var sharedPrefixLength = 0;
+
+  while (
+    sharedPrefixLength < pageDir.length &&
+    sharedPrefixLength < rootDir.length &&
+    pageDir[sharedPrefixLength] === rootDir[sharedPrefixLength]
+  ) {
+    sharedPrefixLength += 1;
+  }
+
+  var depth = pageDir.length - sharedPrefixLength;
+  return depth > 0 ? '../'.repeat(depth) : '';
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { computeBaseFromUrls };
+}
+
+if (typeof window !== 'undefined' && typeof document !== 'undefined') {
 (function () {
   /* ── Nav HTML ── */
   const NAV_HTML = `
@@ -166,16 +194,11 @@
 </a>`;
 
   /* ── Compute relative root prefix ── */
-  var BASE = (function () {
-    var path = window.location.pathname;
-    var dir = path.replace(/\/[^/]*$/, ''); // strip filename
-    // On GitHub Pages (*.github.io) the first path segment is the repo name; skip it
-    if (window.location.hostname.endsWith('.github.io')) {
-      dir = dir.replace(/^\/[^/]+/, '');
-    }
-    var depth = dir.split('/').filter(Boolean).length;
-    return depth > 0 ? '../'.repeat(depth) : '';
-  })();
+  var currentScript = document.currentScript;
+  var BASE = computeBaseFromUrls(
+    window.location.href,
+    currentScript && currentScript.src ? currentScript.src : new URL('assets/shared.js', window.location.href).href
+  );
 
   /* ── Inject (rewrite absolute paths to relative) ── */
   var nav = NAV_HTML.replace(/href="\//g, 'href="' + BASE);
@@ -254,3 +277,4 @@
   });
 
 })();
+}
